@@ -26,9 +26,7 @@
     "rollup-plugin-terser": "^7.0.0",
     "source-map": "^0.7.3"
   },
-  "dependencies": {
-    "lodash": "^4.17.20"
-  },
+  "dependencies": {},
   "files": [
     "dist/*"
   ],
