@@ -32,6 +32,7 @@ export default [
     output: {
       file: './dist/persian-to-pinglish.min.js',
       format: 'cjs',
+      exports: 'named',
     },
     plugins: [
       getBabelOutputPlugin({
