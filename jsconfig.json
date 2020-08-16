@@ -7,6 +7,12 @@
     "moduleResolution": "node",
     "strict": true,
     "target": "es2020",
+    "module": "es6"
+  },
+  "typeAcquisition": {
+    "include": [
+      "jest"
+    ]
   },
   "include": ["src/**/*", "test/**/*"],
   "exclude": ["node_modules", "dist"],
