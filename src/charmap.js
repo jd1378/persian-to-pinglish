@@ -30,6 +30,7 @@ const confident = {
   م: 'm',
   ن: 'n',
   ژ: 'zh',
+  ع: '',
 };
 // letters that are not included in confidentMap:
 // ه و ی ا
@@ -76,6 +77,8 @@ function getUncertainAtFirst(letter) {
         'a'
       );
       break;
+    default:
+      return '';
   }
 }
 
@@ -93,6 +96,8 @@ function getUncertainAtSecond(letter) {
     case 'و':
       return 'oo';
       break;
+    default:
+      return '';
   }
 }
 
@@ -146,6 +151,8 @@ function getUncertainAtBoth(firstLetter, secondLetter) {
           return 'oo';
       }
       break;
+    default:
+      return '';
   }
 }
 
@@ -199,6 +206,8 @@ function getUncertainAtBothComplementary(firstLetter, secondLetter) {
           return 'oo';
       }
       break;
+    default:
+      return '';
   }
 }
 
