@@ -1,6 +1,6 @@
+import { zwnj } from './common';
 // seperation for readability in editor
 const alifbaLetters = 'آابپتسجچحخدذرزژسشصضطظعغفقکگلمنوهیئ';
-const zwnj = '\u200c';
 
 const cleanupRegex = new RegExp(
   `[^0-9۰-۹a-zA-Z${alifbaLetters}\s${zwnj}]`,
