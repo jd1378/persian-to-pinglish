@@ -13,6 +13,7 @@ function persianToPinglish(str, options) {
   if (!options.join) options.join = ' ';
 
   return getWords(cleanup(str))
+    .filter(Boolean) // remove empty array elements
     .map((word) => convert(word))
     .join(options.join);
 }
