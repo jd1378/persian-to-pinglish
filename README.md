@@ -2,7 +2,7 @@
 
 This package aims to convert persian words to their pinglish/finglish forms.
 
-Some ideas were taken from [pinglish](https://www.npmjs.com/package/pinglish) and [f2f](https://www.npmjs.com/package/f2f), but is different.
+It does it in it's own way.
 
 ## Usage
 
