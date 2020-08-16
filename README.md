@@ -19,7 +19,7 @@ yarn add persian-to-pinglish
 then:
 
 ```js
-const p2f = require ('persian-to-pinglish');
+const p2f = require('persian-to-pinglish'); // or use import
 
 let str = "یه چیزی";
 let convStr = p2f(str);
@@ -28,7 +28,6 @@ console.log(convStr);
 
 // you can also use custom seperator
 // example:
-
 let str = "یه چیزی";
 let convStr = p2f(str, { join: '-' });
 console.log(convStr); 
