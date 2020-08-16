@@ -12,6 +12,7 @@ function convert(_word) {
   // clone string
   let word = `${_word}`;
   let cWord = '';
+  let lastLetter = '';
 
   do {
     if (word.length === 1) {
@@ -37,6 +38,14 @@ function convert(_word) {
           cWord += charmap.uncertain[word];
         }
       } else {
+        if (
+          _word.length > 1 &&
+          lastLetter.length &&
+          lastLetter in charmap.confident
+        ) {
+          // TODO: get most common connector vowel here
+          cWord += 'a';
+        }
         cWord += charmap.confident[word] || '';
       }
       word = '';
@@ -71,7 +80,7 @@ function convert(_word) {
         cWord += 'a';
         cWord += charmap.all[sl] || '';
       }
-
+      lastLetter = sl;
       word = word.substr(2);
     }
   } while (word.length);
