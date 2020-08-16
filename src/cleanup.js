@@ -3,7 +3,7 @@ import { zwnj } from './common';
 const alifbaLetters = 'آابپتسجچحخدذرزژسشصضطظعغفقکگلمنوهیئ';
 
 const cleanupRegex = new RegExp(
-  `[^0-9۰-۹a-zA-Z${alifbaLetters}\s${zwnj}]`,
+  `[^0-9۰-۹a-zA-Z${alifbaLetters}\\s${zwnj}]`,
   'g'
 );
 const alifRegex = /[اًٱأإ]/g; // not including آ due to different sound
