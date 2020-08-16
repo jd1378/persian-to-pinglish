@@ -4,6 +4,8 @@ This package aims to convert persian words to their pinglish/finglish forms.
 
 It does it in it's own way.
 
+This is still in development.
+
 ## Usage
 
 Add to your project:
