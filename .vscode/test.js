@@ -1,6 +1,6 @@
 import {persianToPinglish} from '../src/index';
 
-const word = 'چیزی';
+const word = 'تراختور سازی تبریز';
 
 const convertedWord = persianToPinglish(word);
 

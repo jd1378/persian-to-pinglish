@@ -50,5 +50,175 @@ const compound = {
   ['ه' + zwnj + 'ی']: 'eye',
 };
 
-export default { all, confident, compound, uncertain };
-export { all, confident, compound, uncertain };
+function getUncertainAtFirst(letter) {
+  switch (letter) {
+    case 'ه':
+      return (
+        'h' +
+        //TODO
+        'a'
+      );
+      break;
+    case 'ا':
+      return 'a';
+      break;
+    case 'ی':
+      return (
+        'y' +
+        //TODO
+        'a'
+      );
+      break;
+    case 'و':
+      return (
+        'v' +
+        //TODO
+        'a'
+      );
+      break;
+  }
+}
+
+function getUncertainAtSecond(letter) {
+  switch (letter) {
+    case 'ه':
+      return 'e';
+      break;
+    case 'ا':
+      return 'aa';
+      break;
+    case 'ی':
+      return 'i';
+      break;
+    case 'و':
+      return 'oo';
+      break;
+  }
+}
+
+function getUncertainAtBoth(firstLetter, secondLetter) {
+  switch (firstLetter) {
+    case 'ه':
+      switch (secondLetter) {
+        case 'ه':
+          return 'he';
+        case 'ا':
+          return 'haa';
+        case 'ی':
+          return 'hi';
+        case 'و':
+          return 'hoo';
+      }
+      break;
+    case 'ا':
+      switch (secondLetter) {
+        case 'ه':
+          return 'aah';
+        case 'ا':
+          return 'aa';
+        case 'ی':
+          return 'ay';
+        case 'و':
+          return 'oo';
+      }
+      break;
+    case 'ی':
+      switch (secondLetter) {
+        case 'ه':
+          return 'ye';
+        case 'ا':
+          return 'ya';
+        case 'ی':
+          return 'i';
+        case 'و':
+          return 'yoo';
+      }
+      break;
+    case 'و':
+      switch (secondLetter) {
+        case 'ه':
+          return 've';
+        case 'ا':
+          return 'vaa';
+        case 'ی':
+          return 'vi';
+        case 'و':
+          return 'oo';
+      }
+      break;
+  }
+}
+
+function getUncertainAtBothComplementary(firstLetter, secondLetter) {
+  switch (firstLetter) {
+    case 'ه':
+      switch (secondLetter) {
+        case 'ه':
+          return 'e';
+        case 'ا':
+          return 'aa';
+        case 'ی':
+          return 'i';
+        case 'و':
+          return 'oo';
+      }
+      break;
+    case 'ا':
+      switch (secondLetter) {
+        case 'ه':
+          return 'h';
+        case 'ا':
+          return 'aa';
+        case 'ی':
+          return 'y';
+        case 'و':
+          return 'oo';
+      }
+      break;
+    case 'ی':
+      switch (secondLetter) {
+        case 'ه':
+          return 'e';
+        case 'ا':
+          return 'aa';
+        case 'ی':
+          return 'i';
+        case 'و':
+          return 'oo';
+      }
+      break;
+    case 'و':
+      switch (secondLetter) {
+        case 'ه':
+          return 'e';
+        case 'ا':
+          return 'aa';
+        case 'ی':
+          return 'i';
+        case 'و':
+          return 'oo';
+      }
+      break;
+  }
+}
+
+export default {
+  all,
+  confident,
+  compound,
+  uncertain,
+  getUncertainAtFirst,
+  getUncertainAtSecond,
+  getUncertainAtBoth,
+  getUncertainAtBothComplementary,
+};
+export {
+  all,
+  confident,
+  compound,
+  uncertain,
+  getUncertainAtFirst,
+  getUncertainAtSecond,
+  getUncertainAtBoth,
+  getUncertainAtBothComplementary,
+};

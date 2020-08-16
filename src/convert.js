@@ -16,62 +16,55 @@ function convert(_word) {
 
   do {
     if (word.length === 1) {
-      if (word in charmap.uncertain) {
-        if (_word.length > 1) {
-          let eq = '';
-          switch (word) {
-            case 'ه':
-              eq = 'e';
-              break;
-            case 'ا':
-              eq = 'aa';
-              break;
-            case 'ی':
-              eq = 'i';
-              break;
-            case 'و':
-              eq = 'oo';
-              break;
-          }
-          cWord += eq;
+      if (_word.length <= 1) {
+        // single letter returns instantly
+        return charmap.all[word] || '';
+      }
+
+      if (lastLetter in charmap.confident) {
+        if (word in charmap.uncertain) {
+          cWord += charmap.getUncertainAtSecond(word);
+        } else if (_word.length > 3) {
+          cWord += 'a';
+          cWord += charmap.all[word];
         } else {
-          cWord += charmap.uncertain[word];
+          cWord += charmap.all[word];
         }
       } else {
-        if (
-          _word.length > 1 &&
-          lastLetter.length &&
-          lastLetter in charmap.confident
-        ) {
-          // TODO: get most common connector vowel here
-          cWord += 'a';
+        // lastLetter is uncertain
+        if (word in charmap.confident) {
+          cWord += charmap.all[word];
+        } else {
+          // todo
+          cWord += charmap.getUncertainAtBothComplementary(lastLetter, word);
         }
-        cWord += charmap.confident[word] || '';
       }
       word = '';
     } else if (word.length > 1) {
       let fl = word.charAt(0);
       let sl = word.charAt(1);
 
-      let eq = '';
-      if (fl in charmap.uncertain) {
-        cWord += charmap.uncertain[fl] || '';
+      if (lastLetter.length && lastLetter in charmap.confident) {
+        if (fl in charmap.uncertain) {
+          // TODO
+          // cWord += 'i';
+        } else {
+          cWord += 'a';
+        }
+      }
+
+      if (fl in charmap.uncertain && sl in charmap.uncertain) {
+        let eq = charmap.getUncertainAtBoth(fl, sl);
+        cWord += eq;
+      } else if (fl in charmap.uncertain) {
+        if (!lastLetter) {
+          cWord += charmap.getUncertainAtFirst(fl);
+        } else {
+          cWord += charmap.getUncertainAtSecond(fl);
+        }
         cWord += charmap.all[sl] || '';
       } else if (sl in charmap.uncertain) {
-        switch (sl) {
-          case 'و':
-            eq = 'oo';
-            break;
-          case 'ی':
-            eq = 'i';
-            break;
-          case 'ه':
-            eq = 'h';
-            break;
-          case 'ا':
-            eq = 'aa';
-            break;
-        }
+        let eq = charmap.getUncertainAtSecond(sl);
         cWord += charmap.all[fl] || '';
         cWord += eq;
       } else {
