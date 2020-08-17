@@ -23,6 +23,7 @@ function flatPossibilities(obj, soFar = []) {
   let p = [];
   if (Array.isArray(obj)) {
     let foundOnePath = false;
+    let leaf = obj.every((o) => !!o[0].type);
     for (let element of obj) {
       if (Array.isArray(element) && element[0].type === undefined) {
         if (element.length) {
@@ -31,7 +32,9 @@ function flatPossibilities(obj, soFar = []) {
       } else {
         if (foundOnePath) soFar.pop();
         soFar = [...soFar, element];
-        p.push([...soFar]);
+        if (leaf) {
+          p.push([...soFar]);
+        }
         foundOnePath = true;
       }
     }
