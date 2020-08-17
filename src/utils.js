@@ -19,27 +19,33 @@ function factoriel(n) {
   return commonFactoriel[n - 1];
 }
 
+function isHeja(object) {
+  if (Array.isArray(object) && object[0].type) return true;
+  return false;
+}
+
 function flatPossibilities(obj, soFar = []) {
+  if (!obj.length) return [];
+
   let p = [];
-  if (Array.isArray(obj)) {
-    let foundOnePath = false;
-    let leaf = obj.every((o) => !!o[0].type);
-    for (let element of obj) {
-      if (Array.isArray(element) && element[0].type === undefined) {
-        if (element.length) {
-          p.push(...flatPossibilities(element, [...soFar]));
+  if (obj.every(isHeja)) {
+    // leaf
+    obj.forEach((o) => {
+      p.push([...soFar, o]);
+    });
+  } else {
+    for (let el of obj) {
+      if (isHeja(el)) {
+        if (el !== obj[0]) {
+          // if not the first, then rest probably don't depend on it ?
+          p.push([...soFar, el]);
         }
+        soFar = [...soFar, obj[0]];
       } else {
-        if (foundOnePath) soFar.pop();
-        soFar = [...soFar, element];
-        if (leaf) {
-          p.push([...soFar]);
-        }
-        foundOnePath = true;
+        // go deeper
+        p.push(...flatPossibilities(el, [...soFar]));
       }
     }
-  } else {
-    p.push([...soFar, obj]);
   }
   return p;
 }
