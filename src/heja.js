@@ -1,5 +1,5 @@
 import { flatPossibilities } from './utils';
-import { getWordVajPattern } from './vaj';
+import { getWordVajPattern, oM } from './vaj';
 import { getBestConnector } from './vajconnector';
 
 // every beginning heja has either two or three vaj
@@ -62,6 +62,15 @@ function isValidHeja(pattern) {
         // TODO: Not sure
         return false;
       }
+
+      if (
+        pattern[3].letter === 'م' &&
+        pattern[2].letter === 'ز' &&
+        pattern[1].letter === 'ا'
+      ) {
+        // TODO: Not sure
+        return false;
+      }
     }
 
     // if nothing is wrong, heja is valid
@@ -106,6 +115,9 @@ function getNextHeja(word, take, iter) {
     });
   }
   if (!isValidHeja(vajPattern)) return [false];
+  if (vajPattern[1].type === 'm' && vajPattern[1].letter === 'و') {
+    vajPattern[1].letter = oM;
+  }
   return [vajPattern, returnWord];
 }
 
@@ -140,7 +152,7 @@ function possibilityValidator(arr, word) {
       return acc;
     }, 0);
 
-  let wordVajPattern = getWordVajPattern(word).map((el) => el.type);
+  let wordVajPattern = getWordVajPattern(word, true).map((el) => el.type);
   let tolerance = wordVajPattern.reduce((acc, curr) => {
     if (curr === 'u') return acc + 1;
     return acc;
@@ -189,7 +201,7 @@ function getHejas(word) {
   );
 }
 
-let result = getHejas('تصوور');
+let result = getHejas('لوازم');
 for (let wordParts of result) {
   console.log('\n');
 
