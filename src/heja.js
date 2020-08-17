@@ -112,23 +112,18 @@ function getNextHeja(word, take, iter) {
 function getPossibleHejaPatternsRecursive(normWord, iter = 0) {
   let hejaPossibilities = [];
   for (let take = 1; take <= 4; take++) {
-    let hejaPattern = [];
     let [heja, remainingWord] = getNextHeja(normWord, take, iter);
     if (heja) {
-      hejaPattern.push(heja);
       if (remainingWord) {
         let possibleHejaPatterns = getPossibleHejaPatternsRecursive(
           remainingWord,
           iter + 1
         );
         if (possibleHejaPatterns.length) {
-          hejaPattern.push(possibleHejaPatterns);
-        } else {
-          hejaPattern.pop();
+          hejaPossibilities.push([heja, possibleHejaPatterns]);
         }
-      }
-      if (hejaPattern.length) {
-        hejaPossibilities.push(hejaPattern);
+      } else {
+        hejaPossibilities.push(heja);
       }
     }
   }
