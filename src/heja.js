@@ -212,15 +212,64 @@ function possibilityValidator(arr, word) {
  * Returns best heja pattern match
  * @param {String} word - min 2 char.
  */
-function getHejas(word) {
-  let nWord = normalizeWord(word);
+function getHejas(normalizedWord) {
   return flatPossibilities(
-    getPossibleHejaPatternsRecursive(nWord)
-  ).filter((arr) => possibilityValidator(arr, nWord));
+    getPossibleHejaPatternsRecursive(normalizedWord)
+  ).filter((arr) => possibilityValidator(arr, normalizedWord));
 }
 
 function getBestHejaMatch(word) {
-  return getHejas(word)[0];
+  let nWord = normalizeWord(word);
+  let possibleHejas = getHejas(nWord);
+  function sortByBest(a, b) {
+    // if 2 part and 5 , prefer shorter as first
+    if (word.length === 4) {
+      if (a.length === 2) {
+        return -1;
+      } else if (b.length === 2) {
+        return 1;
+      }
+    }
+    // if 2 part and 6 , prefer symmetric
+    if (word.length === 5) {
+      if (a.length === 2 && a.every((aEl) => aEl.length === a[0])) {
+        return -1;
+      } else if (b.length === 2 && b.every((bEl) => bEl.length === b[0])) {
+        return 1;
+      }
+    }
+    // if 3 parts, prefer 2, 2 , 3
+    if (a.length === 3 || b.length === 3) {
+      if (a[0].length === 2 && a[1].length === 2 && a[2].length === 3) {
+        return -1;
+      } else if (b[0].length === 2 && b[1].length === 2 && b[2].length === 3) {
+        return 1;
+      }
+    }
+    // if more than 3 parts, prefer 3, 3 , 2 , 3
+    if (a.length > 3 || b.length > 3) {
+      if (
+        a[0].length === 3 &&
+        a[1].length === 3 &&
+        a[2].length === 2 &&
+        a[3].length === 3
+      ) {
+        return -1;
+      } else if (
+        b[0].length === 3 &&
+        b[1].length === 3 &&
+        b[2].length === 2 &&
+        b[3].length === 3
+      ) {
+        return 1;
+      }
+    }
+    // TODO: if not possible, as a last resort sort by not same in a row
+    return 0;
+  }
+  possibleHejas.sort(sortByBest);
+  // TODO: score hejas properly
+  return possibleHejas[0];
 }
 
 function replaceWithEnglish(wordParts) {
