@@ -220,16 +220,5 @@ function getHejas(word) {
   );
 }
 
-let result = getHejas('سعید');
-for (let wordParts of result) {
-  console.log('\n');
-
-  console.log(
-    wordParts
-      .map((hejaPattern) => hejaPattern.map((vaj) => vaj.letter).join(''))
-      .join('|')
-  );
-}
-
 export default { normalizeWord, getHejas };
 export { normalizeWord, getHejas };
