@@ -1,4 +1,5 @@
 import { zwnj } from './common';
+import { oM, aM, eM } from './vaj';
 
 const confident = {
   آ: 'aa',
@@ -39,6 +40,15 @@ const uncertain = {
   ی: 'y',
   و: 'v',
   ه: 'h',
+};
+
+const mosavet = {
+  ا: 'aa',
+  ی: 'ee',
+  و: 'oo',
+  [aM]: 'a',
+  [oM]: 'o',
+  [eM]: 'e',
 };
 
 const all = {
@@ -215,6 +225,7 @@ export default {
   confident,
   compound,
   uncertain,
+  mosavet,
   getUncertainAtFirst,
   getUncertainAtSecond,
   getUncertainAtBoth,
@@ -225,6 +236,7 @@ export {
   confident,
   compound,
   uncertain,
+  mosavet,
   getUncertainAtFirst,
   getUncertainAtSecond,
   getUncertainAtBoth,

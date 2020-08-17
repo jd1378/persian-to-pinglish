@@ -1,6 +1,7 @@
 import { flatPossibilities } from './utils';
 import { getWordVajPattern } from './vaj';
 import { getBestConnector } from './vajconnector';
+import { all as allCharMaps, mosavet } from './charmap';
 
 // every beginning heja has either two or three vaj
 // every ending heja has two to four vaj
@@ -212,13 +213,38 @@ function possibilityValidator(arr, word) {
  * @param {String} word - min 2 char.
  */
 function getHejas(word) {
-  let possibleHejaPatterns = getPossibleHejaPatternsRecursive(
-    normalizeWord(word)
-  );
-  return flatPossibilities(possibleHejaPatterns).filter((arr) =>
-    possibilityValidator(arr, normalizeWord(word))
-  );
+  let nWord = normalizeWord(word);
+  return flatPossibilities(
+    getPossibleHejaPatternsRecursive(nWord)
+  ).filter((arr) => possibilityValidator(arr, nWord));
 }
 
-export default { normalizeWord, getHejas };
-export { normalizeWord, getHejas };
+function getBestHejaMatch(word) {
+  return getHejas(word)[0];
+}
+
+function replaceWithEnglish(wordParts) {
+  return wordParts.map((heja) => {
+    let vajMap = [];
+    for (let vaj of heja) {
+      if (vaj.type === 'm') {
+        if (vaj.letter === 'و' && heja.length === 2) {
+          vajMap.push('o');
+        } else {
+          vajMap.push(mosavet[vaj.letter]);
+        }
+      } else {
+        vajMap.push(allCharMaps[vaj.letter]);
+      }
+    }
+    return vajMap;
+  });
+}
+
+export default {
+  normalizeWord,
+  getHejas,
+  getBestHejaMatch,
+  replaceWithEnglish,
+};
+export { normalizeWord, getHejas, getBestHejaMatch, replaceWithEnglish };

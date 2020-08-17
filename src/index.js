@@ -1,6 +1,7 @@
 import cleanup from './cleanup';
 import getWords from './getwords';
 import convert from './convert';
+import { getBestHejaMatch, replaceWithEnglish } from './heja';
 
 /**
  *
@@ -18,5 +19,15 @@ function persianToPinglish(str, options) {
     .join(options.join);
 }
 
+function p2fHeja(str, options) {
+  if (!options) options = {};
+  if (!options.join) options.join = ' ';
+
+  return getWords(cleanup(str))
+    .filter(Boolean) // remove empty array elements
+    .map((word) => replaceWithEnglish(getBestHejaMatch(word)).flat().join(''))
+    .join(options.join); // join words to sentence
+}
+
 export default persianToPinglish;
-export { cleanup, getWords, convert, persianToPinglish };
+export { cleanup, getWords, convert, persianToPinglish, p2fHeja };

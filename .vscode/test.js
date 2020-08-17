@@ -1,7 +1,7 @@
-import {persianToPinglish} from '../src/index';
+import {p2fHeja} from '../src/index';
 
-const word = 'تراختور سازی تبریز';
+const word = 'خواهر';
 
-const convertedWord = persianToPinglish(word);
+const convertedWord = p2fHeja(word);
 
 console.log(convertedWord);
