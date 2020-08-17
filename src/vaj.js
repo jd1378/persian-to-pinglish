@@ -29,12 +29,12 @@ function getVaj(letter) {
 /**
  * @param {String} word - min 2 char. normalized word (see heja.js)
  */
-function getWordVajPattern(word) {
+function getWordVajPattern(word, wordMode = false) {
   let pattern = word.split('').map(getVaj);
   if (pattern[0].type === 'u' && ['ی', 'و'].includes(word.charAt(0))) {
     pattern[0].type = 's';
   }
-  if (pattern.length > 1) {
+  if (pattern.length > 1 && !wordMode) {
     if (pattern[1].type === 'u' && ['ی', 'و'].includes(word.charAt(1))) {
       pattern[1].type = 'm';
     }
