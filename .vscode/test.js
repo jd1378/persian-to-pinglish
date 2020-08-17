@@ -1,7 +1,8 @@
-import {p2fHeja} from '../src/index';
 
-const word = 'خواهر';
+import {getHejas, normalizeWord, replaceWithEnglish} from '../src/heja';
 
-const convertedWord = p2fHeja(word);
+const word = 'قسطنطنیه';
 
-console.log(convertedWord);
+const convertedWords = getHejas(normalizeWord(word));
+
+console.log(convertedWords.map(wordParts => wordParts.map(h => h.map(v => v.letter)).flat().join('')+':'+replaceWithEnglish(wordParts).flat().join('')).join('\n'));
