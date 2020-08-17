@@ -34,7 +34,36 @@ function isValidHeja(pattern) {
     if (pattern[1].type !== 'm') return false;
     // third and fourth are always samet
     if (pattern.length === 3 && pattern[2].type !== 's') return false;
-    if (pattern.length === 4 && pattern[3].type !== 's') return false;
+    if (pattern.length === 4) {
+      if (pattern[3].type !== 's') {
+        return false;
+      }
+
+      if (pattern[3].letter === 'ر' && pattern[2].letter === 'چ') {
+        return false;
+      }
+
+      if (
+        ['ب', 'پ', 'د'].includes(pattern[3].letter) &&
+        ['ب', 'پ', 'د'].includes(pattern[2].letter)
+      ) {
+        return false;
+      }
+
+      if (pattern[3].letter === 'ز' && pattern[2].letter === 'ب') {
+        return false;
+      }
+
+      if (pattern[3].letter === 'ژ' && pattern[2].letter === 'ت') {
+        return false;
+      }
+
+      if (pattern[3].letter === 'د' && pattern[2].letter === 'ش') {
+        // TODO: Not sure
+        return false;
+      }
+    }
+
     // if nothing is wrong, heja is valid
     return true;
   }
@@ -51,20 +80,30 @@ function getNextHeja(word, take, iter) {
   if (iter === 0 && take === 4) return [false];
 
   let returnWord = word.substring(take);
+  if (returnWord.length === 0 && word.length === 1) return [false];
   let vajPattern = getWordVajPattern(word.substr(0, take));
-  if (vajPattern[1].type === 's') {
-    if (take === 2 && iter === 0) {
-      let delVaj = vajPattern.splice(1, 1, {
-        type: 'm',
-        letter: getBestConnector(vajPattern[0].letter, vajPattern[1].letter),
-      });
-      returnWord = delVaj[0].letter + returnWord;
-    } else {
-      vajPattern.splice(1, 0, {
-        type: 'm',
-        letter: getBestConnector(vajPattern[0].letter, vajPattern[1].letter),
-      });
-    }
+  if (
+    vajPattern.length === 4 &&
+    vajPattern[1].type === 'm' &&
+    vajPattern[2].type === 'u' &&
+    vajPattern[1].letter === vajPattern[2].letter
+  ) {
+    // tashdid fixer
+    return [false];
+  }
+  if (vajPattern.length > 1 && vajPattern[1].type === 's') {
+    vajPattern.splice(1, 0, {
+      type: 'm',
+      letter: getBestConnector(vajPattern[0].letter, vajPattern[1].letter),
+    });
+  } else if (vajPattern.length === 1) {
+    vajPattern.push({
+      type: 'm',
+      letter: getBestConnector(
+        vajPattern[0].letter,
+        returnWord ? returnWord[0] : ''
+      ),
+    });
   }
   if (!isValidHeja(vajPattern)) return [false];
   return [vajPattern, returnWord];
@@ -72,7 +111,7 @@ function getNextHeja(word, take, iter) {
 
 function getPossibleHejaPatternsRecursive(normWord, iter = 0) {
   let hejaPossibilities = [];
-  for (let take = 2; take <= 4; take++) {
+  for (let take = 1; take <= 4; take++) {
     let hejaPattern = [];
     let [heja, remainingWord] = getNextHeja(normWord, take, iter);
     if (heja) {
@@ -111,6 +150,19 @@ function possibilityValidator(arr, word) {
     if (curr === 'u') return acc + 1;
     return acc;
   }, 0);
+
+  // TODO : remove adjacentUnknown possibility
+  let prev = '';
+  let adjacentUnknown = wordVajPattern.reduce((acc, curr) => {
+    try {
+      if (curr === 'u' && prev === 'u') return acc + 1;
+    } finally {
+      prev = curr;
+    }
+    return acc;
+  }, 0);
+  tolerance -= adjacentUnknown;
+
   let wordSametCount = wordVajPattern.reduce((acc, curr) => {
     if (curr === 's') return acc + 1;
     return acc;
@@ -120,7 +172,8 @@ function possibilityValidator(arr, word) {
     return true;
   } else {
     if (arraySametCount >= wordSametCount) {
-      if (arraySametCount - wordSametCount <= tolerance) {
+      let diff = arraySametCount - wordSametCount;
+      if (diff > 0 && diff <= tolerance) {
         return true;
       }
     }
@@ -141,7 +194,7 @@ function getHejas(word) {
   );
 }
 
-let result = getHejas('رفیعی');
+let result = getHejas('تصوور');
 for (let wordParts of result) {
   console.log('\n');
 

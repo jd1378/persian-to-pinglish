@@ -34,8 +34,10 @@ function getWordVajPattern(word) {
   if (pattern[0].type === 'u' && ['ی', 'و'].includes(word.charAt(0))) {
     pattern[0].type = 's';
   }
-  if (pattern[1].type === 'u' && ['ی', 'و'].includes(word.charAt(1))) {
-    pattern[1].type = 'm';
+  if (pattern.length > 1) {
+    if (pattern[1].type === 'u' && ['ی', 'و'].includes(word.charAt(1))) {
+      pattern[1].type = 'm';
+    }
   }
   return pattern;
 }
