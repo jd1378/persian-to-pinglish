@@ -4,7 +4,6 @@ const confident = {
   آ: 'aa',
   ب: 'b',
   پ: 'p',
-  پ: 'p',
   ت: 't',
   ط: 't',
   ث: 's',
