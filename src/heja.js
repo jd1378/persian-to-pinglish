@@ -158,11 +158,11 @@ function twoVajHejaRepeatDetector(wordParts) {
 }
 
 function possibilityValidator(arr, word) {
-  if (arr.length > 2) {
+  /* if (arr.length > 3) {
     if (twoVajHejaRepeatDetector(arr)) {
       return false;
     }
-  }
+  } */
   // samets of results should be equal with source word
   let arraySametCount = arr
     .flat()
@@ -213,9 +213,10 @@ function possibilityValidator(arr, word) {
  * @param {String} word - min 2 char.
  */
 function getHejas(normalizedWord) {
-  return flatPossibilities(
-    getPossibleHejaPatternsRecursive(normalizedWord)
-  ).filter((arr) => possibilityValidator(arr, normalizedWord));
+  let possibleHejas = getPossibleHejaPatternsRecursive(normalizedWord);
+  return flatPossibilities(possibleHejas).filter((arr) =>
+    possibilityValidator(arr, normalizedWord)
+  );
 }
 
 function getBestHejaMatch(word) {
@@ -239,7 +240,7 @@ function getBestHejaMatch(word) {
       }
     }
     // if 3 parts, prefer 2, 2 , 3
-    if (a.length === 3 || b.length === 3) {
+    if (a.length === 3 && b.length === 3) {
       if (a[0].length === 2 && a[1].length === 2 && a[2].length === 3) {
         return -1;
       } else if (b[0].length === 2 && b[1].length === 2 && b[2].length === 3) {
@@ -247,7 +248,7 @@ function getBestHejaMatch(word) {
       }
     }
     // if more than 3 parts, prefer 3, 3 , 2 , 3
-    if (a.length > 3 || b.length > 3) {
+    if (a.length > 3 && b.length > 3) {
       if (
         a[0].length === 3 &&
         a[1].length === 3 &&
