@@ -2,12 +2,16 @@ const aM = 'َ';
 const oM = 'ُ';
 const eM = 'ِ';
 
-const mosavets = {
-  // mosavet
-  ا: 'm',
+const shortMosavets = {
   [aM]: 'm', // a
   [oM]: 'm', // o
   [eM]: 'm', // e
+};
+
+const mosavets = {
+  // mosavet
+  ا: 'm',
+  ...shortMosavets,
   // unknown
   و: 'u',
   ی: 'u',
@@ -42,5 +46,5 @@ function getWordVajPattern(word, wordMode = false) {
   return pattern;
 }
 
-export default { getVaj, getWordVajPattern, aM, oM, eM };
-export { getVaj, getWordVajPattern, aM, oM, eM };
+export default { getVaj, getWordVajPattern, aM, oM, eM, shortMosavets };
+export { getVaj, getWordVajPattern, aM, oM, eM, shortMosavets };
