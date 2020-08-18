@@ -33,3 +33,8 @@ let convStr = p2f(str, { join: '-' });
 console.log(convStr); 
 // prints "ye-chizi"
 ```
+
+### Want to support this project ?
+
+or want me full time on this project?
+Send me an email on hotmail: javad.mnjd
