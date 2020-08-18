@@ -1,5 +1,5 @@
 import { flatPossibilities } from './utils';
-import { getWordVajPattern } from './vaj';
+import { getWordVajPattern, shortMosavets } from './vaj';
 import { getBestConnector } from './vajconnector';
 import { all as allCharMaps, mosavet } from './charmap';
 
@@ -291,10 +291,27 @@ function replaceWithEnglish(wordParts) {
   });
 }
 
+function stripShortMosavets(heja) {
+  let copy = [...heja];
+  for (let vaj of copy) {
+    if (vaj.letter in shortMosavets) {
+      vaj.letter = '';
+    }
+  }
+  return copy;
+}
+
 export default {
   normalizeWord,
   getHejas,
   getBestHejaMatch,
   replaceWithEnglish,
+  stripShortMosavets,
 };
-export { normalizeWord, getHejas, getBestHejaMatch, replaceWithEnglish };
+export {
+  normalizeWord,
+  getHejas,
+  getBestHejaMatch,
+  replaceWithEnglish,
+  stripShortMosavets,
+};
