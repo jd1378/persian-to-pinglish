@@ -5,7 +5,7 @@ const persian = [
   // from arabic, but persianized
   // mo faa e le
   {
-    frequency: 0,
+    frequency: 1,
     pattern: [
       // mo
       [
