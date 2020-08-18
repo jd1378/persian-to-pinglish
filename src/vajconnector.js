@@ -1,5 +1,10 @@
 import { aM, eM, oM } from './vaj';
 
+//
+// This is just an idea, It can't be done without machine learning.
+// but there is no data sets available to make this.
+//
+
 const scores = {
   آ: 0,
   ع: 0,
