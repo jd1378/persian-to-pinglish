@@ -4,7 +4,7 @@ This package aims to convert persian words to their pinglish/finglish forms.
 
 It does it in it's own way.
 
-This is still in development.
+This is still in development and barely does It's job. don't use it.
 
 ## Usage
 
