@@ -12,6 +12,7 @@ const arabic = [
   // فاعل
   // fa el
   {
+    frequency: 0,
     pattern: [
       // fa
       [
@@ -30,6 +31,7 @@ const arabic = [
   // مفعول
   // maf ool
   {
+    frequency: 0,
     pattern: [
       // maf
       [
@@ -49,6 +51,7 @@ const arabic = [
   // فعیل
   // fa eel
   {
+    frequency: 0,
     pattern: [
       // fa
       [
@@ -68,6 +71,7 @@ const arabic = [
   // (not repeating maf al because not frequent)
   // maf el
   {
+    frequency: 0,
     pattern: [
       // maf
       [
@@ -87,6 +91,7 @@ const arabic = [
   // فَعَل
   // fa al
   {
+    frequency: 0,
     pattern: [
       // fa
       [
@@ -105,6 +110,7 @@ const arabic = [
   // فعلان
   // fe' lan
   {
+    frequency: 0,
     pattern: [
       // fe'
       [
@@ -124,6 +130,7 @@ const arabic = [
   // فَعل
   // fa'l
   {
+    frequency: 0,
     pattern: [
       // fa'l
       [
@@ -138,6 +145,7 @@ const arabic = [
   // فَعّال
   // fa' aal
   {
+    frequency: 0,
     pattern: [
       // fa'
       [
@@ -157,6 +165,7 @@ const arabic = [
   // فعّیل
   // fe' eel
   {
+    frequency: 0,
     pattern: [
       // fe'
       [
@@ -176,6 +185,7 @@ const arabic = [
   // فَعِل
   // fa el
   {
+    frequency: 0,
     pattern: [
       // fa
       [
@@ -194,6 +204,7 @@ const arabic = [
   // فعول
   // fa ool
   {
+    frequency: 0,
     pattern: [
       // fa
       [
@@ -212,6 +223,7 @@ const arabic = [
   // افعل
   // af al
   {
+    frequency: 0,
     pattern: [
       // af
       [
@@ -231,6 +243,7 @@ const arabic = [
   // فعلی
   // fo' la
   {
+    frequency: 0,
     pattern: [
       // fo'
       [
@@ -249,6 +262,7 @@ const arabic = [
   // مِفعَل
   // mef al
   {
+    frequency: 0,
     pattern: [
       // mef
       [
@@ -268,6 +282,7 @@ const arabic = [
   // مِفْعَلَة
   // mef a la
   {
+    frequency: 0,
     pattern: [
       // mef
       [
@@ -291,6 +306,7 @@ const arabic = [
   // مفْعال
   // mef aal
   {
+    frequency: 0,
     pattern: [
       // mef
       [
@@ -310,6 +326,7 @@ const arabic = [
   // افعال
   // af a la
   {
+    frequency: 0,
     pattern: [
       // af
       [
@@ -331,6 +348,7 @@ const arabic = [
   },
   // yof e lo
   {
+    frequency: 0,
     pattern: [
       // yof
       [
@@ -352,6 +370,7 @@ const arabic = [
   },
   // af el
   {
+    frequency: 0,
     pattern: [
       // af
       [
@@ -369,6 +388,7 @@ const arabic = [
   },
   // ef aal
   {
+    frequency: 0,
     pattern: [
       // ef
       [
@@ -388,6 +408,7 @@ const arabic = [
   // انفعال
   // en fa a la
   {
+    frequency: 0,
     pattern: [
       // en
       [
@@ -414,6 +435,7 @@ const arabic = [
   },
   // yan fa e lo
   {
+    frequency: 0,
     pattern: [
       // yan
       [
@@ -440,6 +462,7 @@ const arabic = [
   },
   // en fa el
   {
+    frequency: 0,
     pattern: [
       // en
       [
@@ -462,6 +485,7 @@ const arabic = [
   },
   // en fe aal
   {
+    frequency: 0,
     pattern: [
       // en
       [
@@ -486,6 +510,7 @@ const arabic = [
   // افتعال
   // ef ta a la
   {
+    frequency: 0,
     pattern: [
       // ef
       [
@@ -512,6 +537,7 @@ const arabic = [
   },
   // yaf ta e lo
   {
+    frequency: 0,
     pattern: [
       // yaf
       [
@@ -538,6 +564,7 @@ const arabic = [
   },
   // ef ta el
   {
+    frequency: 0,
     pattern: [
       // ef
       [
@@ -560,6 +587,7 @@ const arabic = [
   },
   // ef te aal
   {
+    frequency: 0,
     pattern: [
       // ef
       [
@@ -584,6 +612,7 @@ const arabic = [
   // استفعال
   // es taf a la
   {
+    frequency: 0,
     pattern: [
       // es
       [
@@ -611,6 +640,7 @@ const arabic = [
   },
   // yas taf e lo
   {
+    frequency: 0,
     pattern: [
       // yas
       [
@@ -638,6 +668,7 @@ const arabic = [
   },
   // es taf el
   {
+    frequency: 0,
     pattern: [
       // es
       [
@@ -661,6 +692,7 @@ const arabic = [
   },
   // es tef aal
   {
+    frequency: 0,
     pattern: [
       // es
       [
@@ -686,6 +718,7 @@ const arabic = [
   // تفعیل
   // fa' a la
   {
+    frequency: 0,
     pattern: [
       // fa'
       [
@@ -707,6 +740,7 @@ const arabic = [
   },
   // yo fa' e lo
   {
+    frequency: 0,
     pattern: [
       // yo
       [
@@ -733,6 +767,7 @@ const arabic = [
   },
   // fa' el
   {
+    frequency: 0,
     pattern: [
       // fa'
       [
@@ -750,6 +785,7 @@ const arabic = [
   },
   // taf eel
   {
+    frequency: 0,
     pattern: [
       // taf
       [
@@ -769,6 +805,7 @@ const arabic = [
   // تَفَعُّل
   // ta fa' a la
   {
+    frequency: 0,
     pattern: [
       // ta
       [
@@ -795,6 +832,7 @@ const arabic = [
   },
   // ya ta fa' a lo
   {
+    frequency: 0,
     pattern: [
       // ya
       [
@@ -826,6 +864,7 @@ const arabic = [
   },
   // ta fa' al
   {
+    frequency: 0,
     pattern: [
       // ta
       [
@@ -848,6 +887,7 @@ const arabic = [
   },
   // ta fa' ol
   {
+    frequency: 0,
     pattern: [
       // ta
       [
@@ -872,6 +912,7 @@ const arabic = [
   // تَفاعل
   // ta faa a la
   {
+    frequency: 0,
     pattern: [
       // ta
       [
@@ -898,6 +939,7 @@ const arabic = [
   },
   // ya ta faa a lo
   {
+    frequency: 0,
     pattern: [
       // ya
       [
@@ -929,6 +971,7 @@ const arabic = [
   },
   // ta faa al
   {
+    frequency: 0,
     pattern: [
       // ta
       [
@@ -951,6 +994,7 @@ const arabic = [
   },
   // ta faa ol
   {
+    frequency: 0,
     pattern: [
       // ta
       [
@@ -975,6 +1019,7 @@ const arabic = [
   // مفاعَلَه
   // faa a la
   {
+    frequency: 0,
     pattern: [
       // faa
       [
@@ -995,6 +1040,7 @@ const arabic = [
   },
   // yo faa e lo
   {
+    frequency: 0,
     pattern: [
       // yo
       [
@@ -1034,6 +1080,7 @@ const arabic = [
   // ],
   // mo faa a la
   {
+    frequency: 0,
     pattern: [
       // mo
       [
