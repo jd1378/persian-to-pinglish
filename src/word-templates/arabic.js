@@ -11,921 +11,1013 @@ const arabic = [
   // ######################################################### names
   // فاعل
   // fa el
-  [
-    // fa
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ا' },
+  {
+    pattern: [
+      // fa
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ا' },
+      ],
+      // el
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
     ],
-    // el
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // مفعول
   // maf ool
-  [
-    // maf
-    [
-      { type: 's', letter: 'م' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // maf
+      [
+        { type: 's', letter: 'م' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // ool
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'و' },
+        { type: 's', letter: '' },
+      ],
     ],
-    // ool
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'و' },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // فعیل
   // fa eel
-  [
-    // fa
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
+  {
+    pattern: [
+      // fa
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
+      // eel
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ی' },
+        { type: 's', letter: '' },
+      ],
     ],
-    // eel
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ی' },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // مفعل
   // (not repeating maf al because not frequent)
   // maf el
-  [
-    // maf
-    [
-      { type: 's', letter: 'م' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // maf
+      [
+        { type: 's', letter: 'م' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // el
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
     ],
-    // el
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // فَعَل
   // fa al
-  [
-    // fa
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
+  {
+    pattern: [
+      // fa
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
+      // al
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
     ],
-    // al
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // فعلان
   // fe' lan
-  [
-    // fe'
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // fe'
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
+      // lan
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ا' },
+        { type: 's', letter: 'ن' },
+      ],
     ],
-    // lan
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ا' },
-      { type: 's', letter: 'ن' },
-    ],
-  ],
+  },
   // -----
   // فَعل
   // fa'l
-  [
-    // fa'l
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // fa'l
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+        { type: 's', letter: '' },
+      ],
     ],
-  ],
+  },
   // -----
   // فَعّال
   // fa' aal
-  [
-    // fa'
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // fa'
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // aal
+      [
+        { type: 's', letter: '', dupe: true },
+        { type: 'm', letter: 'ا' },
+        { type: 's', letter: '' },
+      ],
     ],
-    // aal
-    [
-      { type: 's', letter: '', dupe: true },
-      { type: 'm', letter: 'ا' },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // فعّیل
   // fe' eel
-  [
-    // fe'
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // fe'
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
+      // eel
+      [
+        { type: 's', letter: '', dupe: true },
+        { type: 'm', letter: 'ی' },
+        { type: 's', letter: '' },
+      ],
     ],
-    // eel
-    [
-      { type: 's', letter: '', dupe: true },
-      { type: 'm', letter: 'ی' },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // فَعِل
   // fa el
-  [
-    // fa
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
+  {
+    pattern: [
+      // fa
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
+      // el
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
     ],
-    // el
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // فعول
   // fa ool
-  [
-    // fa
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
+  {
+    pattern: [
+      // fa
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
+      // ool
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'و' },
+        { type: 's', letter: '' },
+      ],
     ],
-    // ool
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'و' },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // افعل
   // af al
-  [
-    // af
-    [
-      { type: 's', letter: 'ء' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // af
+      [
+        { type: 's', letter: 'ء' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // al
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
     ],
-    // al
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // فعلی
   // fo' la
-  [
-    // fo'
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: oM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // fo'
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: oM },
+        { type: 's', letter: '' },
+      ],
+      // la
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ا' },
+      ],
     ],
-    // la
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ا' },
-    ],
-  ],
+  },
   // -----
   // مِفعَل
   // mef al
-  [
-    // mef
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // mef
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
+      // al
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
     ],
-    // al
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // مِفْعَلَة
   // mef a la
-  [
-    // mef
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // mef
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
+      // a
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
+      // la
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
     ],
-    // a
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-    // la
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-  ],
+  },
   // -----
   // مفْعال
   // mef aal
-  [
-    // mef
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // mef
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
+      // aal
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ا' },
+        { type: 's', letter: '' },
+      ],
     ],
-    // aal
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ا' },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // ######################################################### Verbs
   // افعال
   // af a la
-  [
-    // af
-    [
-      { type: 's', letter: 'ء' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // af
+      [
+        { type: 's', letter: 'ء' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // a
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
+      // la
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: '' },
+      ],
     ],
-    // a
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-    // la
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: '' },
-    ],
-  ],
+  },
   // yof e lo
-  [
-    // yof
-    [
-      { type: 's', letter: 'ی' },
-      { type: 'm', letter: oM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // yof
+      [
+        { type: 's', letter: 'ی' },
+        { type: 'm', letter: oM },
+        { type: 's', letter: '' },
+      ],
+      // e
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+      ],
+      // lo
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: '' },
+      ],
     ],
-    // e
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-    ],
-    // lo
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: '' },
-    ],
-  ],
+  },
   // af el
-  [
-    // af
-    [
-      { type: 's', letter: 'ء' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // af
+      [
+        { type: 's', letter: 'ء' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // el
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
     ],
-    // el
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // ef aal
-  [
-    // ef
-    [
-      { type: 's', letter: 'ء' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // ef
+      [
+        { type: 's', letter: 'ء' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
+      // aal
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ا' },
+        { type: 's', letter: '' },
+      ],
     ],
-    // aal
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ا' },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // انفعال
   // en fa a la
-  [
-    // en
-    [
-      { type: 's', letter: 'ء' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: 'ن' },
+  {
+    pattern: [
+      // en
+      [
+        { type: 's', letter: 'ء' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: 'ن' },
+      ],
+      // fa
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
+      // a
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
+      // la
+      [
+        { type: 's', letter: 'ء' },
+        { type: 'm', letter: aM },
+      ],
     ],
-    // fa
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-    // a
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-    // la
-    [
-      { type: 's', letter: 'ء' },
-      { type: 'm', letter: aM },
-    ],
-  ],
+  },
   // yan fa e lo
-  [
-    // yan
-    [
-      { type: 's', letter: 'ء' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: 'ن' },
+  {
+    pattern: [
+      // yan
+      [
+        { type: 's', letter: 'ء' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: 'ن' },
+      ],
+      // fa
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
+      // e
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+      ],
+      // lo
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: oM },
+      ],
     ],
-    // fa
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-    // e
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-    ],
-    // lo
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: oM },
-    ],
-  ],
+  },
   // en fa el
-  [
-    // en
-    [
-      { type: 's', letter: 'ء' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: 'ن' },
+  {
+    pattern: [
+      // en
+      [
+        { type: 's', letter: 'ء' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: 'ن' },
+      ],
+      // fa
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
+      // el
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
     ],
-    // fa
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-    // el
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // en fe aal
-  [
-    // en
-    [
-      { type: 's', letter: 'ء' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: 'ن' },
+  {
+    pattern: [
+      // en
+      [
+        { type: 's', letter: 'ء' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: 'ن' },
+      ],
+      // fe
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+      ],
+      // aal
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ا' },
+        { type: 's', letter: '' },
+      ],
     ],
-    // fe
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-    ],
-    // aal
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ا' },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // افتعال
   // ef ta a la
-  [
-    // ef
-    [
-      { type: 's', letter: 'ء' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // ef
+      [
+        { type: 's', letter: 'ء' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
+      // ta
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: eM },
+      ],
+      // a
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
+      // la
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
     ],
-    // ta
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: eM },
-    ],
-    // a
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-    // la
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-  ],
+  },
   // yaf ta e lo
-  [
-    // yaf
-    [
-      { type: 's', letter: 'ی' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // yaf
+      [
+        { type: 's', letter: 'ی' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // ta
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: aM },
+      ],
+      // e
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+      ],
+      // lo
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: oM },
+      ],
     ],
-    // ta
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: aM },
-    ],
-    // e
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-    ],
-    // lo
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: oM },
-    ],
-  ],
+  },
   // ef ta el
-  [
-    // ef
-    [
-      { type: 's', letter: 'ء' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // ef
+      [
+        { type: 's', letter: 'ء' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
+      // ta
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: aM },
+      ],
+      // el
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
     ],
-    // ta
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: aM },
-    ],
-    // el
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // ef te aal
-  [
-    // ef
-    [
-      { type: 's', letter: 'ء' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // ef
+      [
+        { type: 's', letter: 'ء' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
+      // te
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: eM },
+      ],
+      // aal
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ا' },
+        { type: 's', letter: '' },
+      ],
     ],
-    // te
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: eM },
-    ],
-    // aal
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ا' },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // استفعال
   // es taf a la
-  [
-    // es
-    [
-      { type: 's', letter: 'ء' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: 'س' },
+  {
+    pattern: [
+      // es
+      [
+        { type: 's', letter: 'ء' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: 'س' },
+      ],
+      // taf
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // a
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
+      // la
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
     ],
-    // taf
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
-    ],
-    // a
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-    // la
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-  ],
+  },
   // yas taf e lo
-  [
-    // yas
-    [
-      { type: 's', letter: 'ی' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: 'س' },
+  {
+    pattern: [
+      // yas
+      [
+        { type: 's', letter: 'ی' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: 'س' },
+      ],
+      // taf
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // e
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+      ],
+      // lo
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: oM },
+      ],
     ],
-    // taf
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
-    ],
-    // e
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-    ],
-    // lo
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: oM },
-    ],
-  ],
+  },
   // es taf el
-  [
-    // es
-    [
-      { type: 's', letter: 'ء' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: 'س' },
+  {
+    pattern: [
+      // es
+      [
+        { type: 's', letter: 'ء' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: 'س' },
+      ],
+      // taf
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // el
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
     ],
-    // taf
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
-    ],
-    // el
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // es tef aal
-  [
-    // es
-    [
-      { type: 's', letter: 'ء' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: 'س' },
+  {
+    pattern: [
+      // es
+      [
+        { type: 's', letter: 'ء' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: 'س' },
+      ],
+      // tef
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
+      // aal
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ا' },
+        { type: 's', letter: '' },
+      ],
     ],
-    // tef
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
-    ],
-    // aal
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ا' },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // تفعیل
   // fa' a la
-  [
-    // fa'
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // fa'
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // a
+      [
+        { type: 's', letter: '', dupe: true },
+        { type: 'm', letter: aM },
+      ],
+      // la
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
     ],
-    // a
-    [
-      { type: 's', letter: '', dupe: true },
-      { type: 'm', letter: aM },
-    ],
-    // la
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-  ],
+  },
   // yo fa' e lo
-  [
-    // yo
-    [
-      { type: 's', letter: 'ی' },
-      { type: 'm', letter: oM },
+  {
+    pattern: [
+      // yo
+      [
+        { type: 's', letter: 'ی' },
+        { type: 'm', letter: oM },
+      ],
+      // fa'
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // e
+      [
+        { type: 's', letter: '', dupe: true },
+        { type: 'm', letter: eM },
+      ],
+      // lo
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: oM },
+      ],
     ],
-    // fa'
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
-    ],
-    // e
-    [
-      { type: 's', letter: '', dupe: true },
-      { type: 'm', letter: eM },
-    ],
-    // lo
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: oM },
-    ],
-  ],
+  },
   // fa' el
-  [
-    // fa'
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // fa'
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // el
+      [
+        { type: 's', letter: '', dupe: true },
+        { type: 'm', letter: eM },
+        { type: 's', letter: '' },
+      ],
     ],
-    // el
-    [
-      { type: 's', letter: '', dupe: true },
-      { type: 'm', letter: eM },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // taf eel
-  [
-    // taf
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
+  {
+    pattern: [
+      // taf
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // eel
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ی' },
+        { type: 's', letter: '' },
+      ],
     ],
-    // eel
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ی' },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // تَفَعُّل
   // ta fa' a la
-  [
-    // ta
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: aM },
+  {
+    pattern: [
+      // ta
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: aM },
+      ],
+      // fa'
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // a
+      [
+        { type: 's', letter: '', dupe: true },
+        { type: 'm', letter: aM },
+      ],
+      // la
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
     ],
-    // fa'
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
-    ],
-    // a
-    [
-      { type: 's', letter: '', dupe: true },
-      { type: 'm', letter: aM },
-    ],
-    // la
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-  ],
+  },
   // ya ta fa' a lo
-  [
-    // ya
-    [
-      { type: 's', letter: 'ی' },
-      { type: 'm', letter: aM },
+  {
+    pattern: [
+      // ya
+      [
+        { type: 's', letter: 'ی' },
+        { type: 'm', letter: aM },
+      ],
+      // ta
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: aM },
+      ],
+      // fa'
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // a
+      [
+        { type: 's', letter: '', dupe: true },
+        { type: 'm', letter: aM },
+      ],
+      // lo
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: oM },
+      ],
     ],
-    // ta
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: aM },
-    ],
-    // fa'
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
-    ],
-    // a
-    [
-      { type: 's', letter: '', dupe: true },
-      { type: 'm', letter: aM },
-    ],
-    // lo
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: oM },
-    ],
-  ],
+  },
   // ta fa' al
-  [
-    // ta
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: aM },
+  {
+    pattern: [
+      // ta
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: aM },
+      ],
+      // fa'
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // al
+      [
+        { type: 's', letter: '', dupe: true },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
     ],
-    // fa'
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
-    ],
-    // al
-    [
-      { type: 's', letter: '', dupe: true },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // ta fa' ol
-  [
-    // ta
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: aM },
+  {
+    pattern: [
+      // ta
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: aM },
+      ],
+      // fa'
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // ol
+      [
+        { type: 's', letter: '', dupe: true },
+        { type: 'm', letter: oM },
+        { type: 's', letter: '' },
+      ],
     ],
-    // fa'
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
-    ],
-    // ol
-    [
-      { type: 's', letter: '', dupe: true },
-      { type: 'm', letter: oM },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // تَفاعل
   // ta faa a la
-  [
-    // ta
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: aM },
+  {
+    pattern: [
+      // ta
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: aM },
+      ],
+      // faa
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ا' },
+        { type: 's', letter: '' },
+      ],
+      // a
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
+      // la
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
     ],
-    // faa
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ا' },
-      { type: 's', letter: '' },
-    ],
-    // a
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-    // la
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-  ],
+  },
   // ya ta faa a lo
-  [
-    // ya
-    [
-      { type: 's', letter: 'ی' },
-      { type: 'm', letter: aM },
+  {
+    pattern: [
+      // ya
+      [
+        { type: 's', letter: 'ی' },
+        { type: 'm', letter: aM },
+      ],
+      // ta
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: aM },
+      ],
+      // faa
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ا' },
+        { type: 's', letter: '' },
+      ],
+      // a
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
+      // lo
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: oM },
+      ],
     ],
-    // ta
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: aM },
-    ],
-    // faa
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ا' },
-      { type: 's', letter: '' },
-    ],
-    // a
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-    // lo
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: oM },
-    ],
-  ],
+  },
   // ta faa al
-  [
-    // ta
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: aM },
+  {
+    pattern: [
+      // ta
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: aM },
+      ],
+      // faa
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ا' },
+        { type: 's', letter: '' },
+      ],
+      // al
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
     ],
-    // faa
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ا' },
-      { type: 's', letter: '' },
-    ],
-    // al
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // ta faa ol
-  [
-    // ta
-    [
-      { type: 's', letter: 'ت' },
-      { type: 'm', letter: aM },
+  {
+    pattern: [
+      // ta
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: aM },
+      ],
+      // faa
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ا' },
+        { type: 's', letter: '' },
+      ],
+      // ol
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: oM },
+        { type: 's', letter: '' },
+      ],
     ],
-    // faa
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ا' },
-      { type: 's', letter: '' },
-    ],
-    // ol
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: oM },
-      { type: 's', letter: '' },
-    ],
-  ],
+  },
   // -----
   // مفاعَلَه
   // faa a la
-  [
-    // faa
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ا' },
+  {
+    pattern: [
+      // faa
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ا' },
+      ],
+      // a
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
+      // la
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
     ],
-    // a
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-    // la
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-  ],
+  },
   // yo faa e lo
-  [
-    // yo
-    [
-      { type: 's', letter: 'ی' },
-      { type: 'm', letter: oM },
+  {
+    pattern: [
+      // yo
+      [
+        { type: 's', letter: 'ی' },
+        { type: 'm', letter: oM },
+      ],
+      // faa
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ا' },
+      ],
+      // e
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+      ],
+      // lo
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: oM },
+      ],
     ],
-    // faa
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ا' },
-    ],
-    // e
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: eM },
-    ],
-    // lo
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: oM },
-    ],
-  ],
+  },
   // faa el ######## duplicate of faa el (name)
   // [
   //   // faa
@@ -941,28 +1033,30 @@ const arabic = [
   //   ],
   // ],
   // mo faa a la
-  [
-    // mo
-    [
-      { type: 's', letter: 'م' },
-      { type: 'm', letter: oM },
+  {
+    pattern: [
+      // mo
+      [
+        { type: 's', letter: 'م' },
+        { type: 'm', letter: oM },
+      ],
+      // faa
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ا' },
+      ],
+      // a
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
+      // la
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+      ],
     ],
-    // faa
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: 'ا' },
-    ],
-    // a
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-    // la
-    [
-      { type: 's', letter: '' },
-      { type: 'm', letter: aM },
-    ],
-  ],
+  },
 ];
 
 export default arabic;
