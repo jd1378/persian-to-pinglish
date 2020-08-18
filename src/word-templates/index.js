@@ -1,4 +1,5 @@
 import arabic from './arabic';
+import persian from './persian';
 
 function calculatePatternScore(pattern) {
   let score = 0;
@@ -15,5 +16,5 @@ function calculatePatternScore(pattern) {
   return score;
 }
 
-export default { calculatePatternScore, arabic };
-export { calculatePatternScore, arabic };
+export default { calculatePatternScore, arabic, persian };
+export { calculatePatternScore, arabic, persian };

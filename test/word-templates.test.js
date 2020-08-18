@@ -1,4 +1,5 @@
-import { calculatePatternScore, arabic } from '../src/word-templates';
+// Note: Add every word template import to duplicate check.
+import { calculatePatternScore, arabic, persian } from '../src/word-templates';
 import isEqual from 'lodash/isEqual';
 import { aM } from '../src/vaj';
 
@@ -6,7 +7,7 @@ describe('word-templates', () => {
   describe('patterns', () => {
     describe('duplicates', () => {
       it("doesn't have exact duplicate patterns", () => {
-        let all = [...arabic];
+        let all = [...arabic, ...persian];
         let duplicates = [];
         for (let wt of all) {
           all.forEach((_) => {
