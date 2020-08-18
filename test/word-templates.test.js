@@ -2,7 +2,7 @@ import arabic from '../src/word-templates/arabic';
 import isEqual from 'lodash/isEqual';
 
 describe('word-templates', () => {
-  it("doesn't have exact duplicates", () => {
+  it("doesn't have exact duplicate patterns", () => {
     let all = [...arabic];
     let duplicates = [];
     for (let wt of all) {
