@@ -1,7 +1,22 @@
-import { getWordFitPercent } from '../../src/word-templates';
+import { getWordFitScore } from '../../src/word-templates';
 
-describe('getWordFitPercent function', () => {
-  it('returns 0 for template pattern with 0 score', () => {
+describe('getWordFitScore function', () => {
+  it('returns score and rate', () => {
+    const wordPattern = [
+      //
+      [{ type: 's' }],
+    ];
+    const template = {
+      pattern: [
+        //
+        [{ type: 's' }],
+      ],
+    };
+    const result = getWordFitScore(wordPattern, template.pattern);
+    expect(result).toStrictEqual({ score: 1, rate: 1 });
+  });
+
+  it('handles template with 0 score', () => {
     const wordPattern = [
       //
       [{ type: '' }],
@@ -12,11 +27,32 @@ describe('getWordFitPercent function', () => {
         [{ type: '' }],
       ],
     };
-
-    expect(getWordFitPercent(wordPattern, template.pattern)).toBe(0);
+    const result = getWordFitScore(wordPattern, template.pattern);
+    expect(result).toStrictEqual({ score: 0, rate: 0 });
   });
 
-  it('returns 0 for no match of known data', () => {
+  it('handles template with multiple heja', () => {
+    const wordPattern = [
+      //
+      [
+        { type: 's', letter: 'l' },
+        { type: 't', letter: 'a' },
+      ],
+      [{ type: 's' }],
+    ];
+    const template = {
+      pattern: [
+        //
+        [{ type: 's' }, { type: 'm' }],
+        [{ type: 's' }],
+        [{ type: 's' }],
+      ],
+    };
+    const result = getWordFitScore(wordPattern, template.pattern);
+    expect(result).toStrictEqual({ score: 2, rate: 0.5 });
+  });
+
+  it('scores 0 for no match of known data', () => {
     const wordPattern = [
       //
       [{ type: 'm' }],
@@ -28,10 +64,12 @@ describe('getWordFitPercent function', () => {
       ],
     };
 
-    expect(getWordFitPercent(wordPattern, template.pattern)).toBe(0);
+    let result = getWordFitScore(wordPattern, template.pattern);
+    expect(result.score).toBe(0);
+    expect(result.rate).toBe(0);
   });
 
-  it('returns 1 for exact match of known data', () => {
+  it('scores and rates 1 for exact match of known data', () => {
     const wordPattern = [
       //
       [{ type: 's' }],
@@ -43,10 +81,12 @@ describe('getWordFitPercent function', () => {
       ],
     };
 
-    expect(getWordFitPercent(wordPattern, template.pattern)).toBe(1);
+    let result = getWordFitScore(wordPattern, template.pattern);
+    expect(result.score).toBe(1);
+    expect(result.rate).toBe(1);
   });
 
-  it('returns 0.5 for half match of known data', () => {
+  it('returns rates 0.5 for half match of known data', () => {
     const wordPattern = [
       //
       [{ type: 's' }],
@@ -58,7 +98,7 @@ describe('getWordFitPercent function', () => {
       ],
     };
 
-    expect(getWordFitPercent(wordPattern, template.pattern)).toBe(0.5);
+    expect(getWordFitScore(wordPattern, template.pattern).rate).toBe(0.5);
   });
 
   it('ignores extra data', () => {
@@ -73,6 +113,6 @@ describe('getWordFitPercent function', () => {
       ],
     };
 
-    expect(getWordFitPercent(wordPattern, template.pattern)).toBe(1);
+    expect(getWordFitScore(wordPattern, template.pattern).rate).toBe(1);
   });
 });
