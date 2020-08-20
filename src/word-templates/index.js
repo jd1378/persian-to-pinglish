@@ -59,11 +59,13 @@ function calculateWordFitScore(actualWord, templatePattern) {
 
 function getWordFitScore(actualWord, templatePattern) {
   let templateScore = calculatePatternScore(templatePattern);
-  if (templateScore === 0) return 0;
 
-  let wordScore = calculateWordFitScore(actualWord, templatePattern);
-
-  return { score: wordScore, rate: wordScore / templateScore };
+  if (templateScore !== 0) {
+    let wordScore = calculateWordFitScore(actualWord, templatePattern);
+    return { score: wordScore, rate: wordScore / templateScore };
+  } else {
+    return { score: 0, rate: 0 };
+  }
 }
 
 function getScoredTemplate(actualWord, wordTemplate) {
