@@ -96,6 +96,10 @@ function getBestFitTemplate(actualWord) {
   }
   // from highest to lowest
   tArr.sort((a, b) => {
+    // prefer persian over arabic
+    if (b.persian || a.persian) {
+      return b.persian - a.persian;
+    }
     if (a.rate - b.rate > 0) {
       return -1;
     } else if (a.rate - b.rate === 0) {
@@ -119,11 +123,15 @@ function applyTemplateInPlace(fitResult) {
     i < fitResult.pattern.length && i < fitResult.word.length;
     i++
   ) {
-    if (fitResult.pattern[i].type && !fitResult.word[i].type) {
-      fitResult.word[i].type = fitResult.pattern[i].type;
-    }
-    if (fitResult.pattern[i].letter && !fitResult.word[i].letter) {
-      fitResult.word[i].letter = fitResult.pattern[i].letter;
+    for (
+      let j = 0;
+      j < fitResult.pattern[i].length && j < fitResult.word[i].length;
+      j++
+    ) {
+      // it always have type I guess.
+      if (fitResult.pattern[i][j].letter) {
+        fitResult.word[i][j].letter = fitResult.pattern[i][j].letter;
+      }
     }
   }
   return fitResult;
