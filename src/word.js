@@ -110,6 +110,11 @@ function getBestWordMatch(persianWordStr) {
     if (a.rate - b.rate > 0) {
       return -1;
     } else if (a.rate - b.rate === 0) {
+      if (a.frequency === b.frequency) {
+        return b.score - a.score;
+      } else {
+        return b.frequency - a.frequency;
+      }
       return b.score - a.score;
     } else if (a.rate - b.rate < 0) {
       return 1;
