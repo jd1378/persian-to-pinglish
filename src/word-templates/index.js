@@ -52,7 +52,7 @@ function calculateHejaFitScore(actual, templatePattern) {
  */
 function calculateWordFitScore(actualWord, templatePattern) {
   let wordScore = 0;
-  for (let i = 0; i < actualWord.length; i++) {
+  for (let i = 0; i < actualWord.length && i < templatePattern.length; i++) {
     wordScore += calculateHejaFitScore(actualWord[i], templatePattern[i]);
   }
   return wordScore;
@@ -100,21 +100,29 @@ function getBestFitTemplate(actualWord) {
   return tArr.length && tArr[0];
 }
 
-export default {
-  calculatePatternScore,
-  calculateHejaFitScore,
-  getScoredTemplate,
-  getWordFitScore,
-  getBestFitTemplate,
-  arabic,
-  persian,
-};
+function applyTemplateInPlace(fitResult) {
+  for (
+    let i = 0;
+    i < fitResult.pattern.length && i < fitResult.word.length;
+    i++
+  ) {
+    if (fitResult.pattern[i].type && !fitResult.word[i].type) {
+      fitResult.word[i].type = fitResult.pattern[i].type;
+    }
+    if (fitResult.pattern[i].letter && !fitResult.word[i].letter) {
+      fitResult.word[i].letter = fitResult.pattern[i].letter;
+    }
+  }
+  return fitResult;
+}
+
 export {
   calculatePatternScore,
   calculateHejaFitScore,
   getScoredTemplate,
   getWordFitScore,
   getBestFitTemplate,
+  applyTemplateInPlace,
   arabic,
   persian,
 };
