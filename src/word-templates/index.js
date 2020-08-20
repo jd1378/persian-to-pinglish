@@ -71,7 +71,7 @@ function getWordFitScore(actualWord, templatePattern) {
 
 function getScoredTemplate(actualWord, wordTemplate) {
   let scoreData = getWordFitScore(actualWord, wordTemplate.pattern);
-  let tWithScore = { ...wordTemplate, ...scoreData };
+  let tWithScore = { word: actualWord, ...wordTemplate, ...scoreData };
   return tWithScore;
 }
 
@@ -88,11 +88,11 @@ function getBestFitTemplate(actualWord) {
   }
   // from highest to lowest
   tArr.sort((a, b) => {
-    if (a.score - b.score > 0) {
+    if (a.rate - b.rate > 0) {
       return -1;
-    } else if (a.score - b.score === 0) {
-      return b.rate - a.rate;
-    } else if (a.score - b.score < 0) {
+    } else if (a.rate - b.rate === 0) {
+      return b.score - a.score;
+    } else if (a.rate - b.rate < 0) {
       return 1;
     }
   });
