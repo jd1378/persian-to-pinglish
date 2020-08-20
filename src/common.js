@@ -1,3 +1,4 @@
 const zwnj = '\u200c';
+const tashdid = 'ّ';
 
-export { zwnj };
+export { zwnj, tashdid };
