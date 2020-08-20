@@ -61,12 +61,12 @@ function calculateWordFitScore(actualWord, templatePattern) {
 function getWordFitScore(actualWord, templatePattern) {
   let templateScore = calculatePatternScore(templatePattern);
 
-  if (templateScore !== 0) {
-    let wordScore = calculateWordFitScore(actualWord, templatePattern);
-    return { score: wordScore, rate: wordScore / templateScore };
-  } else {
-    return { score: 0, rate: 0 };
+  if (actualWord.length !== templatePattern.length || templateScore === 0) {
+    return { score: -1, rate: -1 }; // we don't need these
   }
+
+  let wordScore = calculateWordFitScore(actualWord, templatePattern);
+  return { score: wordScore, rate: wordScore / templateScore };
 }
 
 function getScoredTemplate(actualWord, wordTemplate) {
@@ -81,16 +81,27 @@ function getScoredTemplate(actualWord, wordTemplate) {
 function getBestFitTemplate(actualWord) {
   const tArr = [];
   for (const t of persian) {
-    tArr.push(getScoredTemplate(actualWord, t));
+    let result = getScoredTemplate(actualWord, t);
+    if (result.score !== -1) {
+      tArr.push(result);
+    }
   }
   for (const t of arabic) {
-    tArr.push(getScoredTemplate(actualWord, t));
+    let result = getScoredTemplate(actualWord, t);
+    if (result.score !== -1) {
+      tArr.push(result);
+    }
   }
   // from highest to lowest
   tArr.sort((a, b) => {
     if (a.rate - b.rate > 0) {
       return -1;
     } else if (a.rate - b.rate === 0) {
+      if (a.score === b.score) {
+        return b.frequency - a.frequency;
+      } else {
+        return b.score - a.score;
+      }
       return b.score - a.score;
     } else if (a.rate - b.rate < 0) {
       return 1;
