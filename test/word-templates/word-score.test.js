@@ -43,13 +43,13 @@ describe('getWordFitScore function', () => {
     const template = {
       pattern: [
         //
-        [{ type: 's' }, { type: 'm' }],
-        [{ type: 's' }],
-        [{ type: 's' }],
+        [{ type: 's', letter: 'z' }, { type: 'm' }],
+        [{ type: 's', leter: 'z' }],
       ],
     };
     const result = getWordFitScore(wordPattern, template.pattern);
-    expect(result).toStrictEqual({ score: 2, rate: 0.5 });
+    expect(result.score).toBe(2);
+    expect(result.rate).toBe(0.5);
   });
 
   it('scores 0 for no match of known data', () => {
