@@ -83,12 +83,14 @@ function getBestFitTemplate(actualWord) {
   for (const t of persian) {
     let result = getScoredTemplate(actualWord, t);
     if (result.score !== -1) {
+      result.persian = true;
       tArr.push(result);
     }
   }
   for (const t of arabic) {
     let result = getScoredTemplate(actualWord, t);
     if (result.score !== -1) {
+      result.arabic = true;
       tArr.push(result);
     }
   }
