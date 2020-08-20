@@ -17,13 +17,14 @@ function calculatePatternScore(pattern) {
 }
 
 /**
- * @typedef Vaj
- * @property {String} type
- * @property {String} letter
+ * @typedef {import('../vaj').Vaj} Vaj
  */
 
 /**
- * @typedef {Array<Vaj>} Heja
+ * @typedef {import('../heja').Heja} Heja
+ */
+/**
+ * @typedef {import('../word').Word} Word
  */
 
 /**
@@ -46,8 +47,8 @@ function calculateHejaFitScore(actual, templatePattern) {
 }
 
 /**
- * @param {Heja[]} actualWord
- * @param {Heja[]} templatePattern
+ * @param {Word} actualWord
+ * @param {Word} templatePattern
  */
 function calculateWordFitScore(actualWord, templatePattern) {
   let wordScore = 0;
@@ -75,7 +76,7 @@ function getScoredTemplate(actualWord, wordTemplate) {
 }
 
 /**
- * @param {Heja[]} actualWord
+ * @param {Word} actualWord
  */
 function getBestFitTemplate(actualWord) {
   const tArr = [];
