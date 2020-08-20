@@ -50,5 +50,15 @@ function flatPossibilities(obj, soFar = []) {
   return p;
 }
 
-export default { isArrayEqual, factoriel, flatPossibilities };
-export { isArrayEqual, factoriel, flatPossibilities };
+// from: https://stackoverflow.com/a/59555849/3542461
+function cartesianProduct(data) {
+  data.reduce((a, b) => a.flatMap((x) => b.map((y) => [...x, y])), [[]]);
+}
+
+export {
+  //
+  isArrayEqual,
+  factoriel,
+  flatPossibilities,
+  cartesianProduct,
+};
