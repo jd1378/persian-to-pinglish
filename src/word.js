@@ -107,6 +107,10 @@ function getBestWordMatch(persianWordStr) {
   let scoredWords = words.map(getBestFitTemplate);
 
   scoredWords.sort((a, b) => {
+    // prefer persian over arabic
+    if (b.persian || a.persian) {
+      return b.persian - a.persian;
+    }
     if (a.rate - b.rate > 0) {
       return -1;
     } else if (a.rate - b.rate === 0) {
