@@ -130,7 +130,7 @@ const arabic = [
   // فَعل
   // fa'l
   {
-    frequency: 0,
+    frequency: 1, // +1 over fa al
     pattern: [
       // fa'l
       [
