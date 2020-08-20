@@ -1,5 +1,5 @@
 import cleanup from './cleanup';
-import getWords from './getwords';
+import { getWords } from './sentence';
 import convert from './convert';
 import { getBestHejaMatch, replaceWithEnglish } from './heja';
 
@@ -13,7 +13,7 @@ function persianToPinglish(str, options) {
   if (!options) options = {};
   if (!options.join) options.join = ' ';
 
-  return getWords(cleanup(str))
+  return getWords(str)
     .filter(Boolean) // remove empty array elements
     .map((word) => convert(word))
     .join(options.join);
@@ -23,7 +23,7 @@ function p2fHeja(str, options) {
   if (!options) options = {};
   if (!options.join) options.join = ' ';
 
-  return getWords(cleanup(str))
+  return getWords(str)
     .filter(Boolean) // remove empty array elements
     .map((word) => replaceWithEnglish(getBestHejaMatch(word)).flat().join(''))
     .join(options.join); // join words to sentence
