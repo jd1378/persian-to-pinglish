@@ -1,7 +1,12 @@
-import { flatPossibilities } from './utils';
-import { getWordVajPattern, shortMosavets } from './vaj';
-import { getBestConnector } from './vajconnector';
+import { getStrVajPattern, shortMosavets, longMosavetLetters } from './vaj';
 import { all as allCharMaps, mosavet } from './charmap';
+import cloneDeep from 'lodash/cloneDeep';
+
+/**
+ * Definition of a "Heja" in this library:
+ * A heja is an array of "Vaj".
+ * @typedef {Array<import('./vaj').Vaj>} Heja
+ */
 
 // every beginning heja has either two or three vaj
 // every ending heja has two to four vaj
@@ -9,20 +14,6 @@ import { all as allCharMaps, mosavet } from './charmap';
 // third vaj in every heja is optional, and it should samet
 // theres never 2 mosavet in a heja
 // theres never 3 samet in a row
-
-const xRegex1 = /(خو)(ا|ی)(هر|هش|ب|ش|ن)/g;
-const xRegex2 = /^ا/g;
-const xRegex3 = /آ/g;
-/**
- * @param {String} word
- */
-function normalizeWord(word) {
-  let ndWord = word
-    .replace(xRegex1, 'خ$2$3')
-    .replace(xRegex2, 'ء')
-    .replace(xRegex3, 'ءا');
-  return ndWord;
-}
 
 /**
  * @param {Array} pattern
@@ -81,17 +72,17 @@ function isValidHeja(pattern) {
 }
 
 /**
- * @param {String} word
- * @param {Number} take
+ * @param {String} normStr
+ * @param {Number} take - how many letters to take from the normStr
  * @param {Number} iter
  */
-function getNextHeja(word, take, iter) {
-  if (word.length < take) return [false];
+function getNextHeja(normStr, take, iter) {
+  if (normStr.length < take) return [false];
   if (iter === 0 && take === 4) return [false];
 
-  let returnWord = word.substring(take);
-  if (returnWord.length === 0 && word.length === 1) return [false];
-  let vajPattern = getWordVajPattern(word.substr(0, take));
+  let returnWord = normStr.substring(take);
+  if (returnWord.length === 0 && normStr.length === 1) return [false];
+  let vajPattern = getStrVajPattern(normStr.substr(0, take));
   if (
     vajPattern.length === 4 &&
     vajPattern[1].type === 'm' &&
@@ -104,25 +95,27 @@ function getNextHeja(word, take, iter) {
   if (vajPattern.length > 1 && vajPattern[1].type === 's') {
     vajPattern.splice(1, 0, {
       type: 'm',
-      letter: getBestConnector(vajPattern[0].letter, vajPattern[1].letter),
+      letter: '',
     });
   } else if (vajPattern.length === 1) {
     vajPattern.push({
       type: 'm',
-      letter: getBestConnector(
-        vajPattern[0].letter,
-        returnWord ? returnWord[0] : ''
-      ),
+      letter: '',
     });
   }
   if (!isValidHeja(vajPattern)) return [false];
   return [vajPattern, returnWord];
 }
 
-function getPossibleHejaPatternsRecursive(normWord, iter = 0) {
+/**
+ *
+ * @param {String} normStr - a normalized string containing only one persian word
+ * @param {Number} iter - how deep are we in recursion
+ */
+function getPossibleHejaPatternsRecursive(normStr, iter = 0) {
   let hejaPossibilities = [];
   for (let take = 1; take <= 4; take++) {
-    let [heja, remainingWord] = getNextHeja(normWord, take, iter);
+    let [heja, remainingWord] = getNextHeja(normStr, take, iter);
     if (heja) {
       if (remainingWord) {
         let possibleHejaPatterns = getPossibleHejaPatternsRecursive(
@@ -140,137 +133,8 @@ function getPossibleHejaPatternsRecursive(normWord, iter = 0) {
   return hejaPossibilities;
 }
 
-function possibilityValidator(arr, word) {
-  // samets of results should be equal with source word
-  let arraySametCount = arr
-    .flat()
-    .map((el) => el.type)
-    .reduce((acc, curr) => {
-      if (curr === 's') return acc + 1;
-      return acc;
-    }, 0);
-
-  let wordVajPattern = getWordVajPattern(word, true).map((el) => el.type);
-  let tolerance = wordVajPattern.reduce((acc, curr) => {
-    if (curr === 'u') return acc + 1;
-    return acc;
-  }, 0);
-
-  // TODO : remove adjacentUnknown possibility
-  let prev = '';
-  let adjacentUnknown = wordVajPattern.reduce((acc, curr) => {
-    try {
-      if (curr === 'u' && prev === 'u') return acc + 1;
-    } finally {
-      prev = curr;
-    }
-    return acc;
-  }, 0);
-  tolerance -= adjacentUnknown;
-
-  let wordSametCount = wordVajPattern.reduce((acc, curr) => {
-    if (curr === 's') return acc + 1;
-    return acc;
-  }, 0);
-
-  if (arraySametCount === wordSametCount) {
-    return true;
-  } else {
-    if (arraySametCount >= wordSametCount) {
-      let diff = arraySametCount - wordSametCount;
-      if (diff > 0 && diff <= tolerance) {
-        return true;
-      }
-    }
-  }
-  return false;
-}
-
-/**
- * Returns best heja pattern match
- * @param {String} word - min 2 char.
- */
-function getHejas(normalizedWord) {
-  let possibleHejas = getPossibleHejaPatternsRecursive(normalizedWord);
-  return flatPossibilities(possibleHejas).filter((arr) =>
-    possibilityValidator(arr, normalizedWord)
-  );
-}
-
-function getBestHejaMatch(word) {
-  let nWord = normalizeWord(word);
-  let possibleHejas = getHejas(nWord);
-  function sortByBest(a, b) {
-    // if 2 part and 5 , prefer shorter as first
-    if (word.length === 4) {
-      if (a.length === 2) {
-        return -1;
-      } else if (b.length === 2) {
-        return 1;
-      }
-    }
-    // if 2 part and 6 , prefer symmetric
-    if (word.length === 5) {
-      if (a.length === 2 && a.every((aEl) => aEl.length === a[0])) {
-        return -1;
-      } else if (b.length === 2 && b.every((bEl) => bEl.length === b[0])) {
-        return 1;
-      }
-    }
-    // if 3 parts, prefer 2, 2 , 3
-    if (a.length === 3 && b.length === 3) {
-      if (a[0].length === 2 && a[1].length === 2 && a[2].length === 3) {
-        return -1;
-      } else if (b[0].length === 2 && b[1].length === 2 && b[2].length === 3) {
-        return 1;
-      }
-    }
-    // if more than 3 parts, prefer 3, 3 , 2 , 3
-    if (a.length > 3 && b.length > 3) {
-      if (
-        a[0].length === 3 &&
-        a[1].length === 3 &&
-        a[2].length === 2 &&
-        a[3].length === 3
-      ) {
-        return -1;
-      } else if (
-        b[0].length === 3 &&
-        b[1].length === 3 &&
-        b[2].length === 2 &&
-        b[3].length === 3
-      ) {
-        return 1;
-      }
-    }
-    // TODO: if not possible, as a last resort sort by not same in a row
-    return 0;
-  }
-  possibleHejas.sort(sortByBest);
-  // TODO: score hejas properly
-  return possibleHejas[0];
-}
-
-function replaceWithEnglish(wordParts) {
-  return wordParts.map((heja) => {
-    let vajMap = [];
-    for (let vaj of heja) {
-      if (vaj.type === 'm') {
-        if (vaj.letter === 'و' && heja.length === 2) {
-          vajMap.push('o');
-        } else {
-          vajMap.push(mosavet[vaj.letter]);
-        }
-      } else {
-        vajMap.push(allCharMaps[vaj.letter]);
-      }
-    }
-    return vajMap;
-  });
-}
-
 function stripShortMosavets(heja) {
-  let copy = [...heja];
+  let copy = cloneDeep(heja);
   for (let vaj of copy) {
     if (vaj.letter in shortMosavets) {
       vaj.letter = '';
@@ -279,17 +143,43 @@ function stripShortMosavets(heja) {
   return copy;
 }
 
-export default {
-  normalizeWord,
-  getHejas,
-  getBestHejaMatch,
-  replaceWithEnglish,
-  stripShortMosavets,
-};
+/**
+ *
+ * @param {Heja} heja
+ */
+function generatePossibleHejaShortMosavets(heja) {
+  let p = [];
+  if (longMosavetLetters.includes(heja[1].letter)) {
+    p.push(heja);
+  } else {
+    Object.keys(shortMosavets).forEach((sM) => {
+      let copy = cloneDeep(heja);
+      copy[1].letter = sM;
+      p.push(copy);
+    });
+  }
+  return p;
+}
+
+function toPinglishVajs(heja) {
+  let vajMap = [];
+  for (let vaj of heja) {
+    if (vaj.type === 'm') {
+      if (vaj.letter === 'و' && heja.length === 2) {
+        vajMap.push('o');
+      } else {
+        vajMap.push(mosavet[vaj.letter]);
+      }
+    } else {
+      vajMap.push(allCharMaps[vaj.letter]);
+    }
+  }
+  return vajMap;
+}
+
 export {
-  normalizeWord,
-  getHejas,
-  getBestHejaMatch,
-  replaceWithEnglish,
+  getPossibleHejaPatternsRecursive,
   stripShortMosavets,
+  generatePossibleHejaShortMosavets,
+  toPinglishVajs,
 };

@@ -1,3 +1,11 @@
+/**
+ * Definition of a "Vaj" in this library:
+ * A vaj is an Object containing "type" and "letter" properties.
+ * @typedef {Object} Vaj
+ * @property {String} type
+ * @property {String} letter
+ */
+
 const aM = 'َ';
 const oM = 'ُ';
 const eM = 'ِ';
@@ -7,6 +15,8 @@ const shortMosavets = {
   [oM]: 'm', // o
   [eM]: 'm', // e
 };
+
+const longMosavetLetters = ['و', 'ا', 'ی'];
 
 const mosavets = {
   // mosavet
@@ -31,20 +41,36 @@ function getVaj(letter) {
 }
 
 /**
- * @param {String} word - min 2 char. normalized word (see heja.js)
+ * @param {String} normStr - min 2 char. normalized str (see word.js)
  */
-function getWordVajPattern(word, wordMode = false) {
-  let pattern = word.split('').map(getVaj);
-  if (pattern[0].type === 'u' && ['ی', 'و'].includes(word.charAt(0))) {
+function getStrVajPattern(normStr, wordMode = false) {
+  let pattern = normStr.split('').map(getVaj);
+  if (pattern[0].type === 'u' && ['ی', 'و'].includes(normStr.charAt(0))) {
     pattern[0].type = 's';
   }
   if (pattern.length > 1 && !wordMode) {
-    if (pattern[1].type === 'u' && ['ی', 'و'].includes(word.charAt(1))) {
+    if (pattern[1].type === 'u' && ['ی', 'و'].includes(normStr.charAt(1))) {
       pattern[1].type = 'm';
     }
   }
   return pattern;
 }
 
-export default { getVaj, getWordVajPattern, aM, oM, eM, shortMosavets };
-export { getVaj, getWordVajPattern, aM, oM, eM, shortMosavets };
+export default {
+  getVaj,
+  getStrVajPattern,
+  aM,
+  oM,
+  eM,
+  shortMosavets,
+  longMosavetLetters,
+};
+export {
+  getVaj,
+  getStrVajPattern,
+  aM,
+  oM,
+  eM,
+  shortMosavets,
+  longMosavetLetters,
+};

@@ -1,7 +1,7 @@
 import cleanup from './cleanup';
 import { getWords } from './sentence';
 import convert from './convert';
-import { getBestHejaMatch, replaceWithEnglish } from './heja';
+import { getBestWordMatch, toPinglishHejas } from './word';
 
 /**
  *
@@ -25,7 +25,7 @@ function p2fHeja(str, options) {
 
   return getWords(str)
     .filter(Boolean) // remove empty array elements
-    .map((word) => replaceWithEnglish(getBestHejaMatch(word)).flat().join(''))
+    .map((word) => toPinglishHejas(getBestWordMatch(word)).flat().join(''))
     .join(options.join); // join words to sentence
 }
 
