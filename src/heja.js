@@ -140,29 +140,7 @@ function getPossibleHejaPatternsRecursive(normWord, iter = 0) {
   return hejaPossibilities;
 }
 
-function twoVajHejaRepeatDetector(wordParts) {
-  let found = false;
-  let rc = 0;
-  for (let pLen of wordParts.map((p) => p.length)) {
-    if (pLen === 2) {
-      rc++;
-      if (rc > 2) {
-        found = true;
-        break;
-      }
-    } else {
-      rc = 0;
-    }
-  }
-  return found;
-}
-
 function possibilityValidator(arr, word) {
-  /* if (arr.length > 3) {
-    if (twoVajHejaRepeatDetector(arr)) {
-      return false;
-    }
-  } */
   // samets of results should be equal with source word
   let arraySametCount = arr
     .flat()
