@@ -62,7 +62,7 @@ function getWordFitScore(actualWord, templatePattern) {
   let templateScore = calculatePatternScore(templatePattern);
 
   if (actualWord.length !== templatePattern.length || templateScore === 0) {
-    return { score: -1, rate: -1 }; // we don't need these
+    return { score: 0, rate: 0 }; // we don't need these
   }
 
   let wordScore = calculateWordFitScore(actualWord, templatePattern);
@@ -82,14 +82,14 @@ function getBestFitTemplate(actualWord) {
   const tArr = [];
   for (const t of persian) {
     let result = getScoredTemplate(actualWord, t);
-    if (result.score !== -1) {
+    if (result.score !== 0) {
       result.persian = true;
       tArr.push(result);
     }
   }
   for (const t of arabic) {
     let result = getScoredTemplate(actualWord, t);
-    if (result.score !== -1) {
+    if (result.score !== 0) {
       result.arabic = true;
       tArr.push(result);
     }
