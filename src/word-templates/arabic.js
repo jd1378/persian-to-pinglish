@@ -51,7 +51,7 @@ const arabic = [
   // فعیل
   // fa eel
   {
-    frequency: 0,
+    frequency: 1,
     pattern: [
       // fa
       [
