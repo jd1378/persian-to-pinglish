@@ -52,7 +52,7 @@ function flatPossibilities(obj, soFar = []) {
 
 // from: https://stackoverflow.com/a/59555849/3542461
 function cartesianProduct(data) {
-  if (data.length === 1) return data;
+  if (data.length === 1) return data[0].map((el) => [el]);
   return data.reduce((a, b) => a.flatMap((x) => b.map((y) => [...x, y])), [[]]);
 }
 
