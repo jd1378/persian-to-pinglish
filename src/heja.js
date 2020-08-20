@@ -50,6 +50,11 @@ function isValidHeja(pattern) {
         return false;
       }
 
+      if (pattern[2].letter === 'چ' && ['ل', 'ر'].includes(pattern[3].letter)) {
+        // TODO: Not sure
+        return false;
+      }
+
       if (pattern[3].letter === 'د' && pattern[2].letter === 'ش') {
         // TODO: Not sure
         return false;
