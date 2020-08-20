@@ -57,21 +57,18 @@ function calculateWordFitScore(actualWord, templatePattern) {
   return wordScore;
 }
 
-/**
- * @returns a number between 0 and 100
- */
-function getWordFitPercent(actualWord, templatePattern) {
+function getWordFitScore(actualWord, templatePattern) {
   let templateScore = calculatePatternScore(templatePattern);
   if (templateScore === 0) return 0;
 
   let wordScore = calculateWordFitScore(actualWord, templatePattern);
 
-  return wordScore / templateScore;
+  return { score: wordScore, rate: wordScore / templateScore };
 }
 
 function getScoredTemplate(actualWord, wordTemplate) {
-  let score = getWordFitPercent(actualWord, wordTemplate.pattern);
-  let tWithScore = { ...wordTemplate, score };
+  let scoreData = getWordFitScore(actualWord, wordTemplate.pattern);
+  let tWithScore = { ...wordTemplate, ...scoreData };
   return tWithScore;
 }
 
@@ -87,7 +84,15 @@ function getBestFitTemplate(actualWord) {
     tArr.push(getScoredTemplate(actualWord, t));
   }
   // from highest to lowest
-  tArr.sort((a, b) => b.score - a.score);
+  tArr.sort((a, b) => {
+    if (a.score - b.score > 0) {
+      return -1;
+    } else if (a.score - b.score === 0) {
+      return b.rate - a.rate;
+    } else if (a.score - b.score < 0) {
+      return 1;
+    }
+  });
   // return the template with highest score
   return tArr.length && tArr[0];
 }
@@ -96,7 +101,7 @@ export default {
   calculatePatternScore,
   calculateHejaFitScore,
   getScoredTemplate,
-  getWordFitPercent,
+  getWordFitScore,
   getBestFitTemplate,
   arabic,
   persian,
@@ -105,7 +110,7 @@ export {
   calculatePatternScore,
   calculateHejaFitScore,
   getScoredTemplate,
-  getWordFitPercent,
+  getWordFitScore,
   getBestFitTemplate,
   arabic,
   persian,
