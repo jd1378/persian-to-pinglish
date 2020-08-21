@@ -241,7 +241,7 @@ const arabic = [
   },
   // -----
   // فعلی
-  // fo' la
+  // fo' laa
   {
     frequency: 0,
     pattern: [
@@ -251,7 +251,7 @@ const arabic = [
         { type: 'm', letter: oM },
         { type: 's', letter: '' },
       ],
-      // la
+      // laa
       [
         { type: 's', letter: '' },
         { type: 'm', letter: 'ا' },
@@ -428,7 +428,7 @@ const arabic = [
       ],
       // la
       [
-        { type: 's', letter: 'ء' },
+        { type: 's', letter: '' },
         { type: 'm', letter: aM },
       ],
     ],
@@ -439,7 +439,7 @@ const arabic = [
     pattern: [
       // yan
       [
-        { type: 's', letter: 'ء' },
+        { type: 's', letter: 'ی' },
         { type: 'm', letter: aM },
         { type: 's', letter: 'ن' },
       ],
