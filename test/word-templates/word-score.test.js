@@ -33,29 +33,29 @@ describe('getWordFitScore function', () => {
 
   it('handles template with multiple heja', () => {
     const wordPattern = [
-      //
       [
-        { type: 's', letter: 'l' },
-        { type: 't', letter: 'a' },
+        { type: 's', letter: 'l' }, // type match, letter mismatch = 0
+        { type: 't', letter: 'a' }, // type mismatch, letter non-match = -1
       ],
-      [{ type: 's' }],
-    ];
+      [{ type: 's' }], // type match = 1
+    ]; // = 0
     const template = {
+      // 5 score total
       pattern: [
         //
         [{ type: 's', letter: 'z' }, { type: 'm' }],
-        [{ type: 's', leter: 'z' }],
+        [{ type: 's', letter: 'z' }],
       ],
     };
     const result = getWordFitScore(wordPattern, template.pattern);
-    expect(result.score).toBe(2);
-    expect(result.rate).toBe(0.5);
+    expect(result.score).toBe(0);
+    expect(result.rate).toBe(0);
   });
 
   it('scores 0 for no match of known data', () => {
     const wordPattern = [
       //
-      [{ type: 'm' }],
+      [{ type: '' }],
     ];
     const template = {
       pattern: [

@@ -29,11 +29,18 @@ describe('heja pattern score based on comparison', () => {
     expect(calculateHejaFitScore(wordPattern, templatePattern)).toBe(0);
   });
 
-  it('counts non-matching type as 0 score', () => {
-    const wordPattern = [{ type: 's' }];
+  it('counts known non-matching type as 0 score', () => {
+    const wordPattern = [{ type: '' }];
     const templatePattern = [{ type: 'm' }];
 
     expect(calculateHejaFitScore(wordPattern, templatePattern)).toBe(0);
+  });
+
+  it('counts known mis-matching type as -1 score', () => {
+    const wordPattern = [{ type: 's' }];
+    const templatePattern = [{ type: 'm' }];
+
+    expect(calculateHejaFitScore(wordPattern, templatePattern)).toBe(-1);
   });
 
   it('counts empty and equal letters as 0 score', () => {
@@ -50,10 +57,10 @@ describe('heja pattern score based on comparison', () => {
     expect(calculateHejaFitScore(wordPattern, templatePattern)).toBe(1);
   });
 
-  it('counts non-matching letters as 0 score', () => {
+  it('counts non-matching letters as -1 score', () => {
     const wordPattern = [{ letter: 's' }];
     const templatePattern = [{ letter: 'm' }];
 
-    expect(calculateHejaFitScore(wordPattern, templatePattern)).toBe(0);
+    expect(calculateHejaFitScore(wordPattern, templatePattern)).toBe(-1);
   });
 });
