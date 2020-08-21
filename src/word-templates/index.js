@@ -29,17 +29,32 @@ function calculatePatternScore(pattern) {
 
 /**
  * @param {Heja} actual
- * @param {Heja} templatePattern
+ * @param {Heja} templateHeja
  */
-function calculateHejaFitScore(actual, templatePattern) {
+function calculateHejaFitScore(actual, templateHeja, prevHeja) {
   let actualScore = 0;
-  if (actual.length === templatePattern.length) {
+  if (actual.length === templateHeja.length) {
     for (let i = 0; i < actual.length; i++) {
-      if (actual[i].type && actual[i].type === templatePattern[i].type) {
-        actualScore++;
+      if (actual[i].type && templateHeja[i].type) {
+        if (actual[i].type === templateHeja[i].type) {
+          actualScore++;
+        } else {
+          actualScore--;
+        }
       }
-      if (actual[i].letter && actual[i].letter === templatePattern[i].letter) {
-        actualScore++;
+      if (actual[i].letter && templateHeja[i].letter) {
+        if (actual[i].letter === templateHeja[i].letter) {
+          actualScore++;
+        } else {
+          actualScore--;
+        }
+      }
+      if (templateHeja[i].dupe) {
+        if (prevHeja[prevHeja.length - 1].letter === actual[i].letter) {
+          actualScore++;
+        } else {
+          actualScore--;
+        }
       }
     }
   }
@@ -53,7 +68,11 @@ function calculateHejaFitScore(actual, templatePattern) {
 function calculateWordFitScore(actualWord, templatePattern) {
   let wordScore = 0;
   for (let i = 0; i < actualWord.length && i < templatePattern.length; i++) {
-    wordScore += calculateHejaFitScore(actualWord[i], templatePattern[i]);
+    wordScore += calculateHejaFitScore(
+      actualWord[i],
+      templatePattern[i],
+      i > 0 ? actualWord[i - 1] : undefined
+    );
   }
   return wordScore;
 }
@@ -96,20 +115,25 @@ function getBestFitTemplate(actualWord) {
   }
   // from highest to lowest
   tArr.sort((a, b) => {
-    // prefer persian over arabic
-    if (b.persian || a.persian) {
-      return b.persian - a.persian;
-    }
     if (a.rate - b.rate > 0) {
       return -1;
     } else if (a.rate - b.rate === 0) {
       if (a.score === b.score) {
-        return b.frequency - a.frequency;
+        if (a.frequency === b.frequency) {
+          // prefer persian over arabic
+          if (b.persian || a.persian) {
+            return b.persian - a.persian;
+          } else {
+            return 0;
+          }
+        } else {
+          return b.frequency - a.frequency;
+        }
       } else {
         return b.score - a.score;
       }
-      return b.score - a.score;
-    } else if (a.rate - b.rate < 0) {
+    } else {
+      // if (a.rate - b.rate < 0)
       return 1;
     }
   });
