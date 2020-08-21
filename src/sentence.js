@@ -1,6 +1,5 @@
-import { zwnj, tashdid } from './common';
 import { shortMosavets } from './vaj';
-import { alifbaLetters } from './letter';
+import { alifbaLetters, zwnj, tashdid } from './letter';
 
 const shortMosavetChars = Object.keys(shortMosavets);
 // seperation for readability in editor

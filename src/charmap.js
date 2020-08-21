@@ -1,5 +1,5 @@
-import { zwnj } from './common';
 import { oM, aM, eM } from './vaj';
+import { zwnj } from './letter';
 
 const confident = {
   آ: 'aa',
@@ -220,17 +220,6 @@ function getUncertainAtBothComplementary(firstLetter, secondLetter) {
   }
 }
 
-export default {
-  all,
-  confident,
-  compound,
-  uncertain,
-  mosavet,
-  getUncertainAtFirst,
-  getUncertainAtSecond,
-  getUncertainAtBoth,
-  getUncertainAtBothComplementary,
-};
 export {
   all,
   confident,
