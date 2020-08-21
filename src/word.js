@@ -1,5 +1,4 @@
 import { flatPossibilities, cartesianProduct } from './utils';
-import { getStrVajPattern } from './vaj';
 import {
   toPinglishVajs,
   getPossibleHejaPatternsRecursive,
