@@ -14,66 +14,13 @@ import { getBestFitTemplate, applyTemplateInPlace } from './word-templates';
  */
 
 /**
- *
- * @param {Word} word
- * @param {String} normStr - a normalized string containing only one persian word
- */
-function isGeneratedWordValid(word, normStr) {
-  // samets of results should be equal with source word
-  let arraySametCount = word
-    .flat()
-    .map((el) => el.type)
-    .reduce((acc, curr) => {
-      if (curr === 's') return acc + 1;
-      return acc;
-    }, 0);
-
-  let wordVajPattern = getStrVajPattern(normStr, true).map((el) => el.type);
-  let tolerance = wordVajPattern.reduce((acc, curr) => {
-    if (curr === 'u') return acc + 1;
-    return acc;
-  }, 0);
-
-  // TODO : remove adjacentUnknown possibility
-  let prev = '';
-  let adjacentUnknown = wordVajPattern.reduce((acc, curr) => {
-    try {
-      if (curr === 'u' && prev === 'u') return acc + 1;
-    } finally {
-      prev = curr;
-    }
-    return acc;
-  }, 0);
-  tolerance -= adjacentUnknown;
-
-  let wordSametCount = wordVajPattern.reduce((acc, curr) => {
-    if (curr === 's') return acc + 1;
-    return acc;
-  }, 0);
-
-  if (arraySametCount === wordSametCount) {
-    return true;
-  } else {
-    if (arraySametCount >= wordSametCount) {
-      let diff = arraySametCount - wordSametCount;
-      if (diff > 0 && diff <= tolerance) {
-        return true;
-      }
-    }
-  }
-  return false;
-}
-
-/**
  * Returns an array of possible words from a normalized string.
  * @param {String} normStr - a normalized string containing only one persian word
  * @returns {Array<Word>}
  */
 function getPossibleWords(normStr) {
   let possibleWords = getPossibleHejaPatternsRecursive(normStr);
-  let fp = flatPossibilities(possibleWords).filter((arr) =>
-    isGeneratedWordValid(arr, normStr)
-  );
+  let fp = flatPossibilities(possibleWords);
   return fp;
 }
 
@@ -103,24 +50,29 @@ function generatePossibleWordShortMosavets(word) {
  */
 function getBestWordMatch(persianWordStr) {
   let nStr = normalizeStr(persianWordStr);
-  let words = getPossibleDiacriticedWords(nStr);
+  let words = getPossibleWords(nStr);
   let scoredWords = words.map(getBestFitTemplate);
 
   scoredWords.sort((a, b) => {
-    // prefer persian over arabic
-    if (b.persian || a.persian) {
-      return b.persian - a.persian;
-    }
     if (a.rate - b.rate > 0) {
       return -1;
     } else if (a.rate - b.rate === 0) {
-      if (a.frequency === b.frequency) {
-        return b.score - a.score;
+      if (a.score === b.score) {
+        if (a.frequency === b.frequency) {
+          // prefer persian over arabic
+          if (b.persian || a.persian) {
+            return b.persian - a.persian;
+          } else {
+            return 0;
+          }
+        } else {
+          return b.frequency - a.frequency;
+        }
       } else {
-        return b.frequency - a.frequency;
+        return b.score - a.score;
       }
-      return b.score - a.score;
-    } else if (a.rate - b.rate < 0) {
+    } else {
+      // if (a.rate - b.rate < 0)
       return 1;
     }
   });
