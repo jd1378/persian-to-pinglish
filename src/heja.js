@@ -1,4 +1,4 @@
-import { getStrVajPattern, shortMosavets, longMosavetLetters } from './vaj';
+import { getStrVajPattern, shortMosavets, longMosavetLetters, eM } from './vaj';
 import { all as allCharMaps, mosavet } from './charmap';
 import cloneDeep from 'lodash/cloneDeep';
 
@@ -109,6 +109,18 @@ function getNextHeja(normStr, take, iter) {
     });
   }
   if (!isValidHeja(vajPattern)) return [false];
+
+  if (
+    returnWord.length === 0 &&
+    vajPattern.length === 3 &&
+    vajPattern[2].letter === 'ه' &&
+    !longMosavetLetters.includes(vajPattern[1].letter) &&
+    iter !== 0
+  ) {
+    vajPattern.splice(2);
+    vajPattern[1].letter = eM;
+  }
+
   return [vajPattern, returnWord];
 }
 
