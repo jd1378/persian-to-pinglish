@@ -1,5 +1,5 @@
 import { cleanupStr, getWords } from '../src/sentence';
-import { zwnj } from '../src/common';
+import { zwnj } from '../src/letter';
 
 describe('cleanupStr', () => {
   it('expands tashdids', () => {
