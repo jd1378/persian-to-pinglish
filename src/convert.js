@@ -1,4 +1,12 @@
-import charmap from './charmap';
+import {
+  getUncertainAtBoth,
+  getUncertainAtBothComplementary,
+  getUncertainAtFirst,
+  getUncertainAtSecond,
+  all,
+  confident,
+  uncertain,
+} from './charmap';
 
 /**
  *
@@ -18,25 +26,25 @@ function convert(_word) {
     if (word.length === 1) {
       if (_word.length <= 1) {
         // single letter returns instantly
-        return charmap.all[word] || '';
+        return all[word] || '';
       }
 
-      if (lastLetter in charmap.confident) {
-        if (word in charmap.uncertain) {
-          cWord += charmap.getUncertainAtSecond(word);
+      if (lastLetter in confident) {
+        if (word in uncertain) {
+          cWord += getUncertainAtSecond(word);
         } else if (_word.length > 3) {
           cWord += 'a';
-          cWord += charmap.all[word];
+          cWord += all[word];
         } else {
-          cWord += charmap.all[word];
+          cWord += all[word];
         }
       } else {
         // lastLetter is uncertain
-        if (word in charmap.confident) {
-          cWord += charmap.all[word];
+        if (word in confident) {
+          cWord += all[word];
         } else {
           // todo
-          cWord += charmap.getUncertainAtBothComplementary(lastLetter, word);
+          cWord += getUncertainAtBothComplementary(lastLetter, word);
         }
       }
       word = '';
@@ -44,8 +52,8 @@ function convert(_word) {
       let fl = word.charAt(0);
       let sl = word.charAt(1);
 
-      if (lastLetter.length && lastLetter in charmap.confident) {
-        if (fl in charmap.uncertain) {
+      if (lastLetter.length && lastLetter in confident) {
+        if (fl in uncertain) {
           // TODO
           // cWord += 'i';
         } else {
@@ -53,25 +61,25 @@ function convert(_word) {
         }
       }
 
-      if (fl in charmap.uncertain && sl in charmap.uncertain) {
-        let eq = charmap.getUncertainAtBoth(fl, sl);
+      if (fl in uncertain && sl in uncertain) {
+        let eq = getUncertainAtBoth(fl, sl);
         cWord += eq;
-      } else if (fl in charmap.uncertain) {
+      } else if (fl in uncertain) {
         if (!lastLetter) {
-          cWord += charmap.getUncertainAtFirst(fl);
+          cWord += getUncertainAtFirst(fl);
         } else {
-          cWord += charmap.getUncertainAtSecond(fl);
+          cWord += getUncertainAtSecond(fl);
         }
-        cWord += charmap.all[sl] || '';
-      } else if (sl in charmap.uncertain) {
-        let eq = charmap.getUncertainAtSecond(sl);
-        cWord += charmap.all[fl] || '';
+        cWord += all[sl] || '';
+      } else if (sl in uncertain) {
+        let eq = getUncertainAtSecond(sl);
+        cWord += all[fl] || '';
         cWord += eq;
       } else {
-        cWord += charmap.all[fl] || '';
+        cWord += all[fl] || '';
         // TODO: get most common connector vowel here
         cWord += 'a';
-        cWord += charmap.all[sl] || '';
+        cWord += all[sl] || '';
       }
       lastLetter = sl;
       word = word.substr(2);
