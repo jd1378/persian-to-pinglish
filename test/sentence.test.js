@@ -26,6 +26,11 @@ describe('cleanupStr', () => {
     expect(cleanupStr('خانه ای هست')).toBe('خانه' + zwnj + 'ای هست');
   });
 
+  it('uses zwnj between lone `Mi` and the word in front of it', () => {
+    expect(cleanupStr('می روم')).toBe('می' + zwnj + 'روم');
+    expect(cleanupStr('می روم می')).toBe('می' + zwnj + 'روم می');
+  });
+
   it('turns connected `ha` with hamza to connected `he` and ownership `ya`', () => {
     expect(cleanupStr('هٔ')).toBe('ه' + zwnj + 'ی');
   });

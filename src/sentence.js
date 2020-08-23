@@ -27,6 +27,12 @@ const seperateEyAsWordRegex = new RegExp(
   'g'
 );
 
+// if theres a mi before the word
+const seperateMiAsWordRegex = new RegExp(
+  `می[\\t\\r\\f ](?=[${alifbaLetters}]{1})`,
+  'g'
+);
+
 const ownershipYeh = 'ه' + zwnj + 'ی';
 const nakarehEy = 'ه' + zwnj + 'ای';
 
@@ -40,6 +46,7 @@ function cleanupStr(str) {
     .replace(yehRegex, 'ی')
     .replace(seperateYeAsWordRegex, ownershipYeh)
     .replace(seperateEyAsWordRegex, nakarehEy)
+    .replace(seperateMiAsWordRegex, 'می' + zwnj)
     .replace(tashdidRegex, '$1$1') // expands tashdid letters to two letters: جذّاب = جذذاب
     .replace(cleanupRegex, '');
 }
