@@ -1,5 +1,5 @@
-import arabic from './arabic';
-import persian from './persian';
+import { arabic } from './arabic';
+import { persian } from './persian';
 
 function calculatePatternScore(pattern) {
   let score = 0;

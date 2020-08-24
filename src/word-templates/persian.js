@@ -31,5 +31,4 @@ const persian = [
   },
 ];
 
-export default persian;
 export { persian };

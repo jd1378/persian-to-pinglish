@@ -1106,5 +1106,4 @@ const arabic = [
   },
 ];
 
-export default arabic;
 export { arabic };
