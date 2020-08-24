@@ -3,6 +3,10 @@
   "version": "0.3.0",
   "description": "tries to convert persian words to their pinglish or finglish forms",
   "author": "Javad Mnjd",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jd1378/persian-to-pinglish.git"
+  },
   "scripts": {
     "test": "jest",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
