@@ -3,7 +3,7 @@
 import { toPinglishHejas, getBestWordMatch } from '../src/index';
 import p2f from '../src/index';
 
-const word = 'مشهور';
+const word = 'ضعیف';
 
 /// const convertedWords = getPossibleDiacriticedWords(normalizeStr(word));
 
