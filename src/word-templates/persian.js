@@ -1,4 +1,4 @@
-import { oM, eM } from '../vaj';
+import { oM, eM, aM } from '../vaj';
 
 const persian = [
   // مفاعله
@@ -28,6 +28,54 @@ const persian = [
       [
         { type: 's', letter: '' },
         { type: 'm', letter: eM },
+      ],
+    ],
+  },
+  // فل
+  {
+    swingAr: 'فَل',
+    swing: 'fal',
+    frequency: 1,
+    pattern: [
+      // fal
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+    ],
+  },
+  // [s]eM
+  {
+    swingAr: 'فِ',
+    swing: 'fe',
+    frequency: 1.5,
+    pattern: [
+      // fe
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+      ],
+    ],
+  },
+  // مفعول
+  // somewhat same swing, but not including 'م' in pattern
+  {
+    swingAr: 'مَفعول',
+    swing: 'maf ool',
+    frequency: 0.3,
+    pattern: [
+      // maf
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // ool
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'و' },
+        { type: 's', letter: '' },
       ],
     ],
   },
