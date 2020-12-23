@@ -6,12 +6,14 @@ import { aM, oM, eM } from '../vaj';
 // each heja has two to four vaj
 // each vaj can be samet (s) or mosavet (m)
 
+// swing is for debugging purposes
+
 // these may be different from their original form
 const arabic = [
   // ######################################################### names
-  // فاعل
-  // fa el
   {
+    swingAr: 'فاعل',
+    swing: 'fa el',
     frequency: 0,
     pattern: [
       // fa
@@ -28,9 +30,9 @@ const arabic = [
     ],
   },
   // -----
-  // مفعول
-  // maf ool
   {
+    swingAr: 'مفعول',
+    swing: 'maf ool',
     frequency: 0,
     pattern: [
       // maf
@@ -48,9 +50,9 @@ const arabic = [
     ],
   },
   // -----
-  // فعیل
-  // fa eel
   {
+    swingAr: 'فعیل',
+    swing: 'fa eel',
     frequency: 1,
     pattern: [
       // fa
@@ -67,10 +69,10 @@ const arabic = [
     ],
   },
   // -----
-  // مفعل
   // (not repeating maf al because not frequent)
-  // maf el
   {
+    swingAr: 'مفعل',
+    swing: 'maf el',
     frequency: 0,
     pattern: [
       // maf
@@ -88,9 +90,9 @@ const arabic = [
     ],
   },
   // -----
-  // فَعَل
-  // fa al
   {
+    swingAr: 'فَعَل',
+    swing: 'fa al',
     frequency: 0,
     pattern: [
       // fa
@@ -107,9 +109,9 @@ const arabic = [
     ],
   },
   // -----
-  // فعلان
-  // fe' lan
   {
+    swingAr: 'فعلان',
+    swing: "fe' lan",
     frequency: 0,
     pattern: [
       // fe'
@@ -127,9 +129,9 @@ const arabic = [
     ],
   },
   // -----
-  // فَعل
-  // fa'l
   {
+    swingAr: 'فَعل',
+    swing: "fa'l",
     frequency: 1, // +1 over fa al
     pattern: [
       // fa'l
@@ -142,9 +144,9 @@ const arabic = [
     ],
   },
   // -----
-  // فَعّال
-  // fa' aal
   {
+    swingAr: 'فَعّال',
+    swing: "fa' aal",
     frequency: 0,
     pattern: [
       // fa'
@@ -162,9 +164,9 @@ const arabic = [
     ],
   },
   // -----
-  // فعّیل
-  // fe' eel
   {
+    swingAr: 'فعّیل',
+    swing: "fe' eel",
     frequency: 0,
     pattern: [
       // fe'
@@ -182,9 +184,9 @@ const arabic = [
     ],
   },
   // -----
-  // فَعِل
-  // fa el
   {
+    swingAr: 'فَعِل',
+    swing: 'fa el',
     frequency: 0,
     pattern: [
       // fa
@@ -201,9 +203,9 @@ const arabic = [
     ],
   },
   // -----
-  // فعول
-  // fa ool
   {
+    swingAr: 'فعول',
+    swing: 'fa ool',
     frequency: 0,
     pattern: [
       // fa
@@ -220,9 +222,9 @@ const arabic = [
     ],
   },
   // -----
-  // افعل
-  // af al
   {
+    swingAr: 'افعل',
+    swing: 'af al',
     frequency: 0,
     pattern: [
       // af
@@ -240,9 +242,9 @@ const arabic = [
     ],
   },
   // -----
-  // فعلی
-  // fo' laa
   {
+    swingAr: 'فعلی',
+    swing: "fo' laa",
     frequency: 0,
     pattern: [
       // fo'
@@ -259,9 +261,9 @@ const arabic = [
     ],
   },
   // -----
-  // مِفعَل
-  // mef al
   {
+    swingAr: 'مِفعَل',
+    swing: 'mef al',
     frequency: 0,
     pattern: [
       // mef
@@ -279,9 +281,9 @@ const arabic = [
     ],
   },
   // -----
-  // مِفْعَلَة
-  // mef a la
   {
+    swingAr: 'مِفْعَلَة',
+    swing: 'mef a la',
     frequency: 0,
     pattern: [
       // mef
@@ -303,9 +305,9 @@ const arabic = [
     ],
   },
   // -----
-  // مفْعال
-  // mef aal
   {
+    swingAr: 'مفْعال',
+    swing: 'mef aal',
     frequency: 0,
     pattern: [
       // mef
@@ -323,9 +325,9 @@ const arabic = [
     ],
   },
   // ######################################################### Verbs
-  // افعال
-  // af a la
   {
+    swingAr: 'افعال',
+    swing: 'af a la',
     frequency: 0,
     pattern: [
       // af
@@ -346,8 +348,10 @@ const arabic = [
       ],
     ],
   },
-  // yof e lo
+  // ----------
   {
+    swingAr: 'یُفعِلُ',
+    swing: 'yof e lo',
     frequency: 0,
     pattern: [
       // yof
@@ -368,8 +372,10 @@ const arabic = [
       ],
     ],
   },
-  // af el
+  // -------
   {
+    swingAr: 'افعِل',
+    swing: 'af el',
     frequency: 0,
     pattern: [
       // af
@@ -386,8 +392,9 @@ const arabic = [
       ],
     ],
   },
-  // ef aal
   {
+    swingAr: 'افعال',
+    swing: 'ef aal',
     frequency: 0,
     pattern: [
       // ef
@@ -405,9 +412,9 @@ const arabic = [
     ],
   },
   // -----
-  // انفعال
-  // en fa a la
   {
+    swingAr: 'انفَعَل',
+    swing: 'en fa a la',
     frequency: 0,
     pattern: [
       // en
@@ -433,8 +440,10 @@ const arabic = [
       ],
     ],
   },
-  // yan fa e lo
+  // -------
   {
+    swingAr: 'یَنفَعِلُ',
+    swing: 'yan fa e lo',
     frequency: 0,
     pattern: [
       // yan
@@ -460,8 +469,10 @@ const arabic = [
       ],
     ],
   },
-  // en fa el
+  // --------
   {
+    swingAr: 'انفَعِل',
+    swing: 'en fa el',
     frequency: 0,
     pattern: [
       // en
@@ -483,8 +494,10 @@ const arabic = [
       ],
     ],
   },
-  // en fe aal
+  //
   {
+    swingAr: 'انفعال',
+    swing: 'en fe aal',
     frequency: 0,
     pattern: [
       // en
@@ -507,9 +520,9 @@ const arabic = [
     ],
   },
   // -----
-  // افتعال
-  // ef ta a la
   {
+    swingAr: 'افتَعَلَ',
+    swing: 'ef ta a la',
     frequency: 0,
     pattern: [
       // ef
@@ -521,7 +534,7 @@ const arabic = [
       // ta
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: aM },
       ],
       // a
       [
@@ -535,8 +548,10 @@ const arabic = [
       ],
     ],
   },
-  // yaf ta e lo
+  //
   {
+    swingAr: 'یَفتَعِلُ',
+    swing: 'yaf ta e lo',
     frequency: 0,
     pattern: [
       // yaf
@@ -562,8 +577,10 @@ const arabic = [
       ],
     ],
   },
-  // ef ta el
+  // -----
   {
+    swingAr: 'افتَعِل',
+    swing: 'ef ta el',
     frequency: 0,
     pattern: [
       // ef
@@ -585,8 +602,10 @@ const arabic = [
       ],
     ],
   },
-  // ef te aal
+  // ------
   {
+    swingAr: 'افتعال',
+    swing: 'ef te aal',
     frequency: 0,
     pattern: [
       // ef
@@ -608,10 +627,10 @@ const arabic = [
       ],
     ],
   },
-  // -----
-  // استفعال
-  // es taf a la
+  // ----- استفعال
   {
+    swingAr: 'استفعَلَ',
+    swing: 'es taf a la',
     frequency: 0,
     pattern: [
       // es
@@ -638,8 +657,9 @@ const arabic = [
       ],
     ],
   },
-  // yas taf e lo
   {
+    swingAr: 'یَستَفعِلُ',
+    swing: 'yas taf e lo',
     frequency: 0,
     pattern: [
       // yas
@@ -666,8 +686,10 @@ const arabic = [
       ],
     ],
   },
-  // es taf el
+  // -----
   {
+    swingAr: 'استَفعِل',
+    swing: 'es taf el',
     frequency: 0,
     pattern: [
       // es
@@ -690,8 +712,10 @@ const arabic = [
       ],
     ],
   },
-  // es tef aal
+  // -----
   {
+    swingAr: 'استفعال',
+    swing: 'es tef aal',
     frequency: 0,
     pattern: [
       // es
@@ -714,10 +738,11 @@ const arabic = [
       ],
     ],
   },
-  // -----
-  // تفعیل
-  // fa' a la
+  // ----- تفعیل
+
   {
+    swingAr: 'فَعَّلَ',
+    swing: "fa' a la",
     frequency: 0,
     pattern: [
       // fa'
@@ -738,8 +763,9 @@ const arabic = [
       ],
     ],
   },
-  // yo fa' e lo
   {
+    swingAr: 'یُفَعِّلُ',
+    swing: "yo fa' e lo",
     frequency: 0,
     pattern: [
       // yo
@@ -765,8 +791,9 @@ const arabic = [
       ],
     ],
   },
-  // fa' el
   {
+    swingAr: 'فَعِّل',
+    swing: "fa' el",
     frequency: 0,
     pattern: [
       // fa'
@@ -783,8 +810,10 @@ const arabic = [
       ],
     ],
   },
-  // taf eel
+  // -----
   {
+    swingAr: 'تفعیل',
+    swing: 'taf eel',
     frequency: 0,
     pattern: [
       // taf
@@ -801,10 +830,10 @@ const arabic = [
       ],
     ],
   },
-  // -----
-  // تَفَعُّل
-  // ta fa' a la
+  // ----- تَفَعُّل
   {
+    swingAr: 'تَفَعَلَ',
+    swing: "ta fa' a la",
     frequency: 0,
     pattern: [
       // ta
@@ -830,8 +859,9 @@ const arabic = [
       ],
     ],
   },
-  // ya ta fa' a lo
   {
+    swingAr: 'یَتَفَعَّلَ',
+    swing: "ya ta fa' a lo",
     frequency: 0,
     pattern: [
       // ya
@@ -862,8 +892,10 @@ const arabic = [
       ],
     ],
   },
-  // ta fa' al
+  // -----
   {
+    swingAr: 'تَفَعَّل',
+    swing: "ta fa' al",
     frequency: 0,
     pattern: [
       // ta
@@ -885,8 +917,10 @@ const arabic = [
       ],
     ],
   },
-  // ta fa' ol
+  // -----
   {
+    swingAr: 'تَفَعُّل',
+    swing: "ta fa' ol",
     frequency: 0,
     pattern: [
       // ta
@@ -908,10 +942,10 @@ const arabic = [
       ],
     ],
   },
-  // -----
-  // تَفاعل
-  // ta faa a la
+  // ----- تَفاعل
   {
+    swingAr: 'تَفاعَلَ',
+    swing: 'ta faa a la',
     frequency: 0,
     pattern: [
       // ta
@@ -937,8 +971,10 @@ const arabic = [
       ],
     ],
   },
-  // ya ta faa a lo
+  // -----
   {
+    swingAr: 'یَتَفاعَلُ',
+    swing: 'ya ta faa a lo',
     frequency: 0,
     pattern: [
       // ya
@@ -969,8 +1005,10 @@ const arabic = [
       ],
     ],
   },
-  // ta faa al
+  // -----
   {
+    swingAr: 'تَفاعَل',
+    swing: 'ta faa al',
     frequency: 0,
     pattern: [
       // ta
@@ -992,8 +1030,10 @@ const arabic = [
       ],
     ],
   },
-  // ta faa ol
+  // -----
   {
+    swingAr: 'تَفاعُل',
+    swing: 'ta faa ol',
     frequency: 0,
     pattern: [
       // ta
@@ -1015,10 +1055,10 @@ const arabic = [
       ],
     ],
   },
-  // -----
-  // مفاعَلَه
-  // faa a la
+  // ----- مفاعَلَه
   {
+    swingAr: 'فاعَلَ',
+    swing: 'faa a la',
     frequency: 0,
     pattern: [
       // faa
@@ -1038,8 +1078,10 @@ const arabic = [
       ],
     ],
   },
-  // yo faa e lo
+  // -----
   {
+    swingAr: 'یُفاعَلَ',
+    swing: 'yo faa e lo',
     frequency: 0,
     pattern: [
       // yo
@@ -1078,8 +1120,10 @@ const arabic = [
   //     { type: 's', letter: '' },
   //   ],
   // ],
-  // mo faa a la
+  // -----
   {
+    swingAr: 'مُفاعَلَ',
+    swing: 'mo faa a la',
     frequency: 0,
     pattern: [
       // mo
