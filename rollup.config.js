@@ -3,54 +3,107 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 
+let pkg = require('./package.json');
+
+const isDev = process.env.NODE_ENV === 'development';
+
+const banner = `/* persian-to-pinglish v${pkg.version} - License: MIT */`;
+
 const commonConfig = {
-  input: './src/index.js',
+  input: 'src/index.js',
+};
+
+const babelCommonOptions = {
+  exclude: ['node_modules/**'],
+};
+
+const terserOptions = {
+  output: {
+    ecma: 5,
+  },
 };
 
 export default [
   {
     ...commonConfig,
     output: {
-      file: './dist/persian-to-pinglish.esm.js',
-      format: 'es',
+      banner,
+      file: pkg.browser,
+      format: 'esm',
     },
     plugins: [
-      getBabelOutputPlugin({
-        exclude: 'node_modules/**',
-        presets: ['@babel/preset-env'],
-      }),
       nodeResolve(),
-      commonjs({
-        include: ['node_modules/**'],
+      getBabelOutputPlugin({
+        ...babelCommonOptions,
+        presets: [
+          [
+            '@babel/preset-env',
+            {
+              targets: {
+                browsers: ['ie >= 8'],
+              },
+            },
+          ],
+        ],
+        plugins: [
+          [
+            '@babel/plugin-transform-modules-umd',
+            { moduleId: 'PersianToPinglish' },
+          ],
+        ],
       }),
-      terser({
-        output: {
-          ecma: 5,
-        },
-      }),
-    ],
+      commonjs(),
+      isDev ? 0 : terser(terserOptions),
+    ].filter(Boolean),
   },
   {
-    ...commonConfig,
-    output: {
-      file: './dist/persian-to-pinglish.min.js',
-      format: 'cjs',
-      exports: 'named',
-    },
+    input: 'src/index.js',
     plugins: [
       getBabelOutputPlugin({
-        exclude: 'node_modules/**',
-        presets: ['@babel/preset-env'],
+        ...babelCommonOptions,
+        presets: [
+          [
+            '@babel/preset-env',
+            {
+              targets: {
+                browsers: ['last 2 versions'],
+              },
+              modules: false,
+            },
+          ],
+        ],
       }),
-      nodeResolve(),
-      commonjs({
-        include: ['node_modules/**'],
+      isDev ? 0 : terser(terserOptions),
+    ].filter(Boolean),
+    output: {
+      banner,
+      file: pkg.main,
+      format: 'cjs',
+    },
+  },
+  {
+    input: 'src/index.js',
+    plugins: [
+      getBabelOutputPlugin({
+        ...babelCommonOptions,
+        presets: [
+          [
+            '@babel/preset-env',
+            {
+              targets: {
+                browsers: ['last 2 versions'],
+              },
+              modules: false,
+            },
+          ],
+        ],
       }),
-      terser({
-        output: {
-          ecma: 5,
-        },
-      }),
-    ],
+      isDev ? 0 : terser(terserOptions),
+    ].filter(Boolean),
+    output: {
+      banner,
+      file: pkg.module,
+      format: 'esm',
+    },
   },
 ];
