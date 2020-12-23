@@ -71,7 +71,7 @@ const arabic = [
   // -----
   // (not repeating maf al because not frequent)
   {
-    swingAr: 'مفعل',
+    swingAr: 'مفعِل',
     swing: 'maf el',
     frequency: 0,
     pattern: [
