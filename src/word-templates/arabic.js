@@ -31,7 +31,7 @@ const arabic = [
   },
   // -----
   {
-    swingAr: 'مفعول',
+    swingAr: 'مَفعول',
     swing: 'maf ool',
     frequency: 0,
     pattern: [
