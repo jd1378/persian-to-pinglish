@@ -1,8 +1,9 @@
 
 // import {getPossibleDiacriticedWords, normalizeStr, toPinglishHejas, getBestWordMatch } from '../src/word';
 import { toPinglishHejas, getBestWordMatch } from '../src/index';
+import p2f from '../src/index';
 
-const word = 'اُستخوان';
+const word = 'مشهور';
 
 /// const convertedWords = getPossibleDiacriticedWords(normalizeStr(word));
 
@@ -10,10 +11,12 @@ const word = 'اُستخوان';
 ///
 
 let bestMatch = getBestWordMatch(word);
-let bestMatchWord = bestMatch.word;
 console.log(
   // the pattern:
-  bestMatchWord.map(h => h.map(v => v.letter)).flat().join(''),
+  bestMatch.word.map(h => h.map(v => v.letter)).flat().join(''),
   // pinglish:
-  toPinglishHejas(bestMatchWord).flat().join(''),
+  toPinglishHejas(bestMatch).flat().join(''),
 );
+
+const sentence = "علی به خانه رفت";
+console.log(p2f(sentence));
