@@ -121,6 +121,19 @@ const persian = [
       ],
     ],
   },
+  {
+    swingAr: 'فول',
+    swing: 'fool',
+    frequency: 0.1,
+    pattern: [
+      // fool
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'و' },
+        { type: 's', letter: '' },
+      ],
+    ],
+  },
 ];
 
 const persianPrefix = [
