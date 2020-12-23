@@ -6,6 +6,8 @@ It does it in it's own way.
 
 This is still in development and barely does It's job. use at your own discretion.
 
+You can see it in action [here](https://jd1378.github.io/persian-to-pinglish/).
+
 ## Usage
 
 Add to your project:
@@ -27,6 +29,12 @@ console.log(convStr); // "zaeef"
 ```
 
 ## important changes
+
+### 0.5.0
+
+Updated rollup config to produce a umd version that can be used in browser environment. main function renamed to `toPinglish`.
+this can be accessed from `PersianToPinglish.toPinglish('yourstr')`
+this is a breaking change from last version.
 
 ### 0.4.0
 

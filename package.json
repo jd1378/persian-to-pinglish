@@ -1,6 +1,6 @@
 {
   "name": "persian-to-pinglish",
-  "version": "0.4.5",
+  "version": "0.5.0",
   "description": "tries to convert persian words to their pinglish or finglish forms",
   "author": "Javad Mnjd",
   "repository": {
@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-modules-umd": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-commonjs": "^17.0.0",
@@ -36,7 +37,8 @@
   "files": [
     "dist/*"
   ],
-  "main": "dist/persian-to-pinglish.min.js",
+  "main": "dist/persian-to-pinglish.cjs.js",
+  "browser": "dist/persian-to-pinglish.umd.js",
   "module": "dist/persian-to-pinglish.esm.js",
   "browserslist": [
     "defaults"
