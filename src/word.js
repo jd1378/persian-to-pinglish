@@ -6,6 +6,7 @@ import {
 } from './heja';
 import { getBestFitTemplate, applyTemplateInPlace } from './word-templates';
 import convert from './heuristic';
+import { eM } from './vaj';
 
 /**
  * Definition of a "Word" in this library:
@@ -65,8 +66,8 @@ function generatePossibleWordShortMosavets(word) {
 function getBestWordMatch(persianWordStr) {
   let nStr = normalizeStr(persianWordStr);
 
-  // some heuristic detection for 2 letter words
-  if (nStr.length <= 2) {
+  // heuristic for 1 letters
+  if (nStr.length === 1) {
     return {
       heuristic: true,
       word: [Array.from(convert(nStr))],
@@ -106,6 +107,7 @@ function getBestWordMatch(persianWordStr) {
 const xRegex1 = /(خو)(ا|ی)(هر|هش|ب|ش|ن)/g;
 const xRegex2 = /^ا/g;
 const xRegex3 = /آ/g;
+const xRegex4 = /^([^ردذزژوظطضص])ه$/g;
 /**
  * @param {String} str
  */
@@ -113,7 +115,8 @@ function normalizeStr(str) {
   let nStr = str
     .replace(xRegex1, 'خ$2$3')
     .replace(xRegex2, 'ء')
-    .replace(xRegex3, 'ءا');
+    .replace(xRegex3, 'ءا')
+    .replace(xRegex4, '$1' + eM);
   return nStr;
 }
 
