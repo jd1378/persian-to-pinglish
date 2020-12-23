@@ -79,6 +79,48 @@ const persian = [
       ],
     ],
   },
+  {
+    swingAr: 'مَفعِلَت',
+    swing: 'maf e lat',
+    frequency: 0.1,
+    pattern: [
+      // maf
+      [
+        { type: 's', letter: 'م' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: '' },
+      ],
+      // e
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: eM },
+      ],
+      // lat
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: 'ت' },
+      ],
+    ],
+  },
+  {
+    swingAr: 'فَشْتْی',
+    swing: 'fash ti',
+    frequency: 0.1,
+    pattern: [
+      // fash
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: aM },
+        { type: 's', letter: 'ش' },
+      ],
+      // li
+      [
+        { type: 's', letter: 'ت' },
+        { type: 'm', letter: 'ی' },
+      ],
+    ],
+  },
 ];
 
 const persianPrefix = [
