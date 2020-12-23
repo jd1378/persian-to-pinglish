@@ -28,7 +28,7 @@ import { eM } from './vaj';
  * @property {Number} frequency
  * @property {Number} score - how many letters/thigns of the word is same as in template
  * @property {Number} rate - is resulted from "score / templateScore", templateScore is the count of known things in pattern
- * @property {Word} Pattern - the matched pattern
+ * @property {Word} pattern - the matched pattern
  */
 
 /**
@@ -78,6 +78,12 @@ function getBestWordMatch(persianWordStr) {
   }
 
   let words = getPossibleWords(nStr).filter(Boolean);
+  if (!words.length) {
+    // TODO: detect possible compositions and retry
+    throw new Error(
+      'This word may contain prefix/suffixes, this is not supported yet'
+    );
+  }
   let scoredWords = words.map(getBestFitTemplate).filter(Boolean);
 
   scoredWords.sort((a, b) => {
@@ -109,7 +115,7 @@ function getBestWordMatch(persianWordStr) {
   } else {
     return {
       word: words[0],
-      unmatched: true,
+      heuristic: true,
     };
   }
 }
