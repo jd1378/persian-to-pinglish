@@ -1,6 +1,6 @@
 {
   "name": "persian-to-pinglish",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "tries to convert persian words to their pinglish or finglish forms",
   "author": "Javad Mnjd",
   "repository": {
