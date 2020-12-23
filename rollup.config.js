@@ -20,6 +20,9 @@ export default [
         presets: ['@babel/preset-env'],
       }),
       nodeResolve(),
+      commonjs({
+        include: ['node_modules/**'],
+      }),
       terser({
         output: {
           ecma: 5,
@@ -40,7 +43,9 @@ export default [
         presets: ['@babel/preset-env'],
       }),
       nodeResolve(),
-      commonjs(),
+      commonjs({
+        include: ['node_modules/**'],
+      }),
       terser({
         output: {
           ecma: 5,
