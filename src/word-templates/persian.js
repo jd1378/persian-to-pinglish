@@ -31,4 +31,42 @@ const persian = [
   },
 ];
 
-export { persian };
+const persianPrefix = [
+  {
+    pattern: [
+      [
+        { type: 's', letter: 'م' },
+        { type: 'm', letter: 'ی' },
+      ],
+    ],
+  },
+  {
+    pattern: [
+      [
+        { type: 's', letter: 'ب' },
+        { type: 'm', letter: eM },
+      ],
+    ],
+  },
+];
+
+const persianSuffix = [
+  {
+    pattern: [
+      [
+        { type: 's', letter: 'ی' },
+        { type: 'm', letter: eM },
+      ],
+    ],
+  },
+  {
+    pattern: [
+      [
+        { type: 's', letter: 'ا' },
+        { type: 'm', letter: 'ی' },
+      ],
+    ],
+  },
+];
+
+export { persian, persianPrefix, persianSuffix };
