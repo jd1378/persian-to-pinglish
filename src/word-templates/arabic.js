@@ -24,7 +24,7 @@ const arabic = [
       // el
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
     ],
@@ -38,7 +38,7 @@ const arabic = [
       // maf
       [
         { type: 's', letter: 'م' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // ool
@@ -58,7 +58,7 @@ const arabic = [
       // fa
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // eel
       [
@@ -78,13 +78,13 @@ const arabic = [
       // maf
       [
         { type: 's', letter: 'م' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // el
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
     ],
@@ -98,12 +98,12 @@ const arabic = [
       // fa
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // al
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
     ],
@@ -117,7 +117,7 @@ const arabic = [
       // fe'
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
       // lan
@@ -137,7 +137,7 @@ const arabic = [
       // fa'l
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
         { type: 's', letter: '' },
       ],
@@ -152,7 +152,7 @@ const arabic = [
       // fa'
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // aal
@@ -172,7 +172,7 @@ const arabic = [
       // fe'
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
       // eel
@@ -192,12 +192,12 @@ const arabic = [
       // fa
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // el
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
     ],
@@ -211,7 +211,7 @@ const arabic = [
       // fa
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // ool
       [
@@ -230,13 +230,13 @@ const arabic = [
       // af
       [
         { type: 's', letter: 'ء' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // al
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
     ],
@@ -250,7 +250,7 @@ const arabic = [
       // fo'
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: oM },
+        { type: 'm', letter: oM, short: true },
         { type: 's', letter: '' },
       ],
       // laa
@@ -269,13 +269,13 @@ const arabic = [
       // mef
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
       // al
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
     ],
@@ -289,18 +289,18 @@ const arabic = [
       // mef
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
       // a
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // la
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
     ],
   },
@@ -313,7 +313,7 @@ const arabic = [
       // mef
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
       // aal
@@ -333,13 +333,13 @@ const arabic = [
       // af
       [
         { type: 's', letter: 'ء' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // a
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // la
       [
@@ -357,13 +357,13 @@ const arabic = [
       // yof
       [
         { type: 's', letter: 'ی' },
-        { type: 'm', letter: oM },
+        { type: 'm', letter: oM, short: true },
         { type: 's', letter: '' },
       ],
       // e
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
       ],
       // lo
       [
@@ -381,13 +381,13 @@ const arabic = [
       // af
       [
         { type: 's', letter: 'ء' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // el
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
     ],
@@ -400,7 +400,7 @@ const arabic = [
       // ef
       [
         { type: 's', letter: 'ء' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
       // aal
@@ -420,23 +420,23 @@ const arabic = [
       // en
       [
         { type: 's', letter: 'ء' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: 'ن' },
       ],
       // fa
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // a
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // la
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
     ],
   },
@@ -449,23 +449,23 @@ const arabic = [
       // yan
       [
         { type: 's', letter: 'ی' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: 'ن' },
       ],
       // fa
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // e
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
       ],
       // lo
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: oM },
+        { type: 'm', letter: oM, short: true },
       ],
     ],
   },
@@ -478,18 +478,18 @@ const arabic = [
       // en
       [
         { type: 's', letter: 'ء' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: 'ن' },
       ],
       // fa
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // el
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
     ],
@@ -503,13 +503,13 @@ const arabic = [
       // en
       [
         { type: 's', letter: 'ء' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: 'ن' },
       ],
       // fe
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
       ],
       // aal
       [
@@ -528,23 +528,23 @@ const arabic = [
       // ef
       [
         { type: 's', letter: 'ء' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
       // ta
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // a
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // la
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
     ],
   },
@@ -557,23 +557,23 @@ const arabic = [
       // yaf
       [
         { type: 's', letter: 'ی' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // ta
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // e
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
       ],
       // lo
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: oM },
+        { type: 'm', letter: oM, short: true },
       ],
     ],
   },
@@ -586,18 +586,18 @@ const arabic = [
       // ef
       [
         { type: 's', letter: 'ء' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
       // ta
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // el
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
     ],
@@ -611,13 +611,13 @@ const arabic = [
       // ef
       [
         { type: 's', letter: 'ء' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
       // te
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
       ],
       // aal
       [
@@ -636,24 +636,24 @@ const arabic = [
       // es
       [
         { type: 's', letter: 'ء' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: 'س' },
       ],
       // taf
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // a
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // la
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
     ],
   },
@@ -665,24 +665,24 @@ const arabic = [
       // yas
       [
         { type: 's', letter: 'ی' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: 'س' },
       ],
       // taf
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // e
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
       ],
       // lo
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: oM },
+        { type: 'm', letter: oM, short: true },
       ],
     ],
   },
@@ -695,19 +695,19 @@ const arabic = [
       // es
       [
         { type: 's', letter: 'ء' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: 'س' },
       ],
       // taf
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // el
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
     ],
@@ -721,13 +721,13 @@ const arabic = [
       // es
       [
         { type: 's', letter: 'ء' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: 'س' },
       ],
       // tef
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
       // aal
@@ -748,18 +748,18 @@ const arabic = [
       // fa'
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // a
       [
         { type: 's', letter: '', dupe: true },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // la
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
     ],
   },
@@ -771,23 +771,23 @@ const arabic = [
       // yo
       [
         { type: 's', letter: 'ی' },
-        { type: 'm', letter: oM },
+        { type: 'm', letter: oM, short: true },
       ],
       // fa'
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // e
       [
         { type: 's', letter: '', dupe: true },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
       ],
       // lo
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: oM },
+        { type: 'm', letter: oM, short: true },
       ],
     ],
   },
@@ -799,13 +799,13 @@ const arabic = [
       // fa'
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // el
       [
         { type: 's', letter: '', dupe: true },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
         { type: 's', letter: '' },
       ],
     ],
@@ -819,7 +819,7 @@ const arabic = [
       // taf
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // eel
@@ -839,23 +839,23 @@ const arabic = [
       // ta
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // fa'
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // a
       [
         { type: 's', letter: '', dupe: true },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // la
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
     ],
   },
@@ -867,28 +867,28 @@ const arabic = [
       // ya
       [
         { type: 's', letter: 'ی' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // ta
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // fa'
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // a
       [
         { type: 's', letter: '', dupe: true },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // lo
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: oM },
+        { type: 'm', letter: oM, short: true },
       ],
     ],
   },
@@ -901,18 +901,18 @@ const arabic = [
       // ta
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // fa'
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // al
       [
         { type: 's', letter: '', dupe: true },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
     ],
@@ -926,18 +926,18 @@ const arabic = [
       // ta
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // fa'
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // ol
       [
         { type: 's', letter: '', dupe: true },
-        { type: 'm', letter: oM },
+        { type: 'm', letter: oM, short: true },
         { type: 's', letter: '' },
       ],
     ],
@@ -951,7 +951,7 @@ const arabic = [
       // ta
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // faa
       [
@@ -962,12 +962,12 @@ const arabic = [
       // a
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // la
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
     ],
   },
@@ -980,12 +980,12 @@ const arabic = [
       // ya
       [
         { type: 's', letter: 'ی' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // ta
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // faa
       [
@@ -996,12 +996,12 @@ const arabic = [
       // a
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // lo
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: oM },
+        { type: 'm', letter: oM, short: true },
       ],
     ],
   },
@@ -1014,7 +1014,7 @@ const arabic = [
       // ta
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // faa
       [
@@ -1025,7 +1025,7 @@ const arabic = [
       // al
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
     ],
@@ -1039,7 +1039,7 @@ const arabic = [
       // ta
       [
         { type: 's', letter: 'ت' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // faa
       [
@@ -1050,7 +1050,7 @@ const arabic = [
       // ol
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: oM },
+        { type: 'm', letter: oM, short: true },
         { type: 's', letter: '' },
       ],
     ],
@@ -1069,12 +1069,12 @@ const arabic = [
       // a
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // la
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
     ],
   },
@@ -1087,7 +1087,7 @@ const arabic = [
       // yo
       [
         { type: 's', letter: 'ی' },
-        { type: 'm', letter: oM },
+        { type: 'm', letter: oM, short: true },
       ],
       // faa
       [
@@ -1097,12 +1097,12 @@ const arabic = [
       // e
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
       ],
       // lo
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: oM },
+        { type: 'm', letter: oM, short: true },
       ],
     ],
   },
@@ -1116,7 +1116,7 @@ const arabic = [
   //   // el
   //   [
   //     { type: 's', letter: '' },
-  //     { type: 'm', letter: eM },
+  //     { type: 'm', letter: eM, short: true},
   //     { type: 's', letter: '' },
   //   ],
   // ],
@@ -1129,7 +1129,7 @@ const arabic = [
       // mo
       [
         { type: 's', letter: 'م' },
-        { type: 'm', letter: oM },
+        { type: 'm', letter: oM, short: true },
       ],
       // faa
       [
@@ -1139,12 +1139,12 @@ const arabic = [
       // a
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
       // la
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
       ],
     ],
   },

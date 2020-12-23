@@ -101,11 +101,13 @@ function getNextHeja(normStr, take, iter) {
     vajPattern.splice(1, 0, {
       type: 'm',
       letter: '',
+      short: true,
     });
   } else if (vajPattern.length === 1) {
     vajPattern.push({
       type: 'm',
       letter: '',
+      short: true,
     });
   }
   if (!isValidHeja(vajPattern)) return [false];
@@ -172,6 +174,7 @@ function generatePossibleHejaShortMosavets(heja) {
     Object.keys(shortMosavets).forEach((sM) => {
       let copy = cloneDeep(heja);
       copy[1].letter = sM;
+      copy[1].short = true;
       p.push(copy);
     });
   }

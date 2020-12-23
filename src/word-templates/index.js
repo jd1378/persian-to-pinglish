@@ -43,9 +43,28 @@ function calculateHejaFitScore(actual, templateHeja, prevHeja) {
           actualScore--;
         }
       }
+      if (actual[i].type && templateHeja[i].type) {
+        if (
+          // both are mosavet and
+          actual[i].type === templateHeja[i].type &&
+          // both not short or long mosavet
+          actual[i].short !== templateHeja[i].short
+        ) {
+          // very wrong
+          actualScore += -1000;
+        }
+      }
       if (actual[i].letter && templateHeja[i].letter) {
         if (actual[i].letter === templateHeja[i].letter) {
           actualScore++;
+        } else if (
+          actual[i].type === 's' &&
+          actual[i].type === templateHeja[i].type &&
+          templateHeja[i].letter
+        ) {
+          // if both are samet, template has samet, and they are
+          // not the same, it's very wrong, should be penalized
+          actualScore += -1000;
         } else {
           actualScore--;
         }

@@ -4,6 +4,7 @@
  * @typedef {Object} Vaj
  * @property {String} type
  * @property {String} letter
+ * @property {Boolean} [short] - if the mosavet type is short
  */
 
 const aM = 'َ';

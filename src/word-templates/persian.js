@@ -12,7 +12,7 @@ const persian = [
       // mo
       [
         { type: 's', letter: 'م' },
-        { type: 'm', letter: oM },
+        { type: 'm', letter: oM, short: true },
       ],
       // faa
       [
@@ -22,12 +22,12 @@ const persian = [
       // e
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
       ],
       // le
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
       ],
     ],
   },
@@ -40,7 +40,7 @@ const persian = [
       // fal
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
     ],
@@ -54,7 +54,7 @@ const persian = [
       // fe
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
       ],
     ],
   },
@@ -68,7 +68,7 @@ const persian = [
       // maf
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // ool
@@ -87,18 +87,18 @@ const persian = [
       // maf
       [
         { type: 's', letter: 'م' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: '' },
       ],
       // e
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
       ],
       // lat
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: 'ت' },
       ],
     ],
@@ -111,7 +111,7 @@ const persian = [
       // fash
       [
         { type: 's', letter: '' },
-        { type: 'm', letter: aM },
+        { type: 'm', letter: aM, short: true },
         { type: 's', letter: 'ش' },
       ],
       // li
@@ -179,7 +179,7 @@ const persianPrefix = [
     pattern: [
       [
         { type: 's', letter: 'ب' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
       ],
     ],
   },
@@ -190,7 +190,7 @@ const persianSuffix = [
     pattern: [
       [
         { type: 's', letter: 'ی' },
-        { type: 'm', letter: eM },
+        { type: 'm', letter: eM, short: true },
       ],
     ],
   },
