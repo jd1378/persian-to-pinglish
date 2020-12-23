@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>persian-to-pinglish demo</title>
+  <script src="persian-to-pinglish.umd.js" async></script>
+</head>
+<body>
+  <div class="h-min-100 center p-3">
+      <div>
+        <h1 class="mb-3"><a target="_blank" href="https://www.npmjs.com/package/persian-to-pinglish">persian-to-pinglish</a> demo</h1>
+        <div class="column w-flexible">
+          <div class="mb-3">
+            Type in your input:
+          </div>
+          <input id="userinput" class="form-control mb-3" type="text" oninput="debouncedInputChange()">
+            
+          <div class="mb-3">
+            Output:
+          </div>
+          <code id="resultarea" class="p-3">&nbsp;</code>
+        </div>
+      </div>
+  </div>
+
+  <script>
+    function debounce(callback, wait, immediate = false) {
+      let timeout = null 
+      
+      return function() {
+        const callNow = immediate && !timeout
+        const next = () => callback.apply(this, arguments)
+        
+        clearTimeout(timeout)
+        timeout = setTimeout(next, wait)
+
+        if (callNow) {
+          next()
+        }
+      }
+    }
+
+    function onInputChanged() {
+      try {
+        resultarea.innerText = PersianToPinglish.toPinglish(userinput.value);
+      } catch(err) {
+        resultarea.innerText = 'Error: ' + err.message;
+        console.error(err);
+      }
+    }
+
+    var debouncedInputChange = debounce(onInputChanged, 800, false);
+  </script>
+</body>
+</html>
