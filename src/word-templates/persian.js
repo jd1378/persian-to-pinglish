@@ -134,6 +134,23 @@ const persian = [
       ],
     ],
   },
+  {
+    swingAr: 'فیلا',
+    swing: 'fi la',
+    frequency: 0.1,
+    pattern: [
+      // fi
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ی' },
+      ],
+      // la
+      [
+        { type: 's', letter: '' },
+        { type: 'm', letter: 'ا' },
+      ],
+    ],
+  },
 ];
 
 const persianPrefix = [
