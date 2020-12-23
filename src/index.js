@@ -7,7 +7,7 @@ import { getBestWordMatch, toPinglishHejas } from './word';
  * @param {Object} options - see source for info
  * @param {String} [options.join] - joins words inside the string with this string as seperator
  */
-function persianToPinglish(str, options) {
+function toPinglish(str, options) {
   if (!options) options = {};
   if (!options.join) options.join = ' ';
 
@@ -19,5 +19,5 @@ function persianToPinglish(str, options) {
     .join(options.join);
 }
 
-export default persianToPinglish;
-export { getWords, persianToPinglish, getBestWordMatch, toPinglishHejas };
+export default toPinglish;
+export { getWords, toPinglish, getBestWordMatch, toPinglishHejas };
