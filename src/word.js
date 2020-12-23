@@ -5,11 +5,26 @@ import {
   generatePossibleHejaShortMosavets,
 } from './heja';
 import { getBestFitTemplate, applyTemplateInPlace } from './word-templates';
+import convert from './heuristic';
 
 /**
  * Definition of a "Word" in this library:
  * A word is an array of "Heja".
  * @typedef {Array<import('./heja').Heja>} Word
+ */
+
+/**
+ * Definition of a "BestMatch" in this library:
+ * @typedef {Object} BestMatch
+ * @property {Word} word
+ * @property {{
+ *  word: Word,
+ *  heuristic: true,
+ * }} [heuristic]
+ * @property {Number} frequency
+ * @property {Number} score - how many letters/thigns of the word is same as in template
+ * @property {Number} rate - is resulted from "score / templateScore", templateScore is the count of known things in pattern
+ * @property {Word} Pattern - the matched pattern
  */
 
 /**
@@ -45,10 +60,19 @@ function generatePossibleWordShortMosavets(word) {
 /**
  *
  * @param {String} persianWordStr
- * @returns {Word}
+ * @returns {BestMatch}
  */
 function getBestWordMatch(persianWordStr) {
   let nStr = normalizeStr(persianWordStr);
+
+  // some heuristic detection for 2 letter words
+  if (nStr.length <= 2) {
+    return {
+      heuristic: true,
+      word: [Array.from(convert(nStr))],
+    };
+  }
+
   let words = getPossibleWords(nStr);
   let scoredWords = words.map(getBestFitTemplate);
 
@@ -95,10 +119,13 @@ function normalizeStr(str) {
 
 /**
  *
- * @param {Word} word
+ * @param {BestMatch} bestMatch
  */
-function toPinglishHejas(word) {
-  return word.map(toPinglishVajs);
+function toPinglishHejas(bestMatch) {
+  if (bestMatch.heuristic) {
+    return bestMatch.word;
+  }
+  return bestMatch.word.map(toPinglishVajs);
 }
 
 export {

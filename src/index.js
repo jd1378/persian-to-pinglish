@@ -13,7 +13,9 @@ function persianToPinglish(str, options) {
 
   return getWords(str)
     .filter(Boolean) // remove empty array elements
-    .map((word) => toPinglishHejas(getBestWordMatch(word)).flat().join(''))
+    .map((sentenceWords) => {
+      return toPinglishHejas(getBestWordMatch(sentenceWords)).flat().join('');
+    })
     .join(options.join);
 }
 
