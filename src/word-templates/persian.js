@@ -5,6 +5,8 @@ const persian = [
   // from arabic, but persianized
   // mo faa e le
   {
+    swingAr: 'مُفاعَلَ',
+    swing: 'mo faa a la',
     frequency: 1,
     pattern: [
       // mo
