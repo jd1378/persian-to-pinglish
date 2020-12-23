@@ -4,7 +4,10 @@ import {
   getPossibleHejaPatternsRecursive,
   generatePossibleHejaShortMosavets,
 } from './heja';
-import { getBestFitTemplate, applyTemplateInPlace } from './word-templates';
+import {
+  getBestFitTemplate,
+  applyTemplateInPlace,
+} from './word-templates/index';
 import convert from './heuristic';
 import { eM } from './vaj';
 
@@ -74,8 +77,8 @@ function getBestWordMatch(persianWordStr) {
     };
   }
 
-  let words = getPossibleWords(nStr);
-  let scoredWords = words.map(getBestFitTemplate);
+  let words = getPossibleWords(nStr).filter(Boolean);
+  let scoredWords = words.map(getBestFitTemplate).filter(Boolean);
 
   scoredWords.sort((a, b) => {
     if (a.rate - b.rate > 0) {
@@ -101,7 +104,14 @@ function getBestWordMatch(persianWordStr) {
     }
   });
   // TODO: score hejas properly
-  return applyTemplateInPlace(scoredWords[0]);
+  if (scoredWords.length) {
+    return applyTemplateInPlace(scoredWords[0]);
+  } else {
+    return {
+      word: words[0],
+      unmatched: true,
+    };
+  }
 }
 
 const xRegex1 = /(خو)(ا|ی)(هر|هش|ب|ش|ن)/g;
