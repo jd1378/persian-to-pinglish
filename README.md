@@ -1,4 +1,4 @@
-## Persian to Pinglish/Finglish Converter
+# Persian to Pinglish/Finglish Converter
 
 This package aims to convert persian words to their pinglish/finglish forms.
 
