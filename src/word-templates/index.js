@@ -155,8 +155,10 @@ function applyTemplateInPlace(fitResult) {
     ) {
       // it always have type I guess.
       if (fitResult.pattern[i][j].letter) {
-        // don't replace short mosavets of actual words, because they are helpers
-        if (!shortMosavets[fitResult.word[i][j].letter]) {
+        if (
+          // if target letter in word has not short mosavets
+          !shortMosavets[fitResult.word[i][j].letter]
+        ) {
           fitResult.word[i][j].letter = fitResult.pattern[i][j].letter;
         }
       }
