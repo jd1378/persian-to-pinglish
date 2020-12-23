@@ -1,6 +1,6 @@
 {
   "name": "persian-to-pinglish",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "tries to convert persian words to their pinglish or finglish forms",
   "author": "Javad Mnjd",
   "repository": {
@@ -10,7 +10,8 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "build": "cross-env NODE_ENV=production rollup --config ./rollup.config.js"
+    "build": "cross-env NODE_ENV=production rollup --config ./rollup.config.js",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
