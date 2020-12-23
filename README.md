@@ -8,6 +8,10 @@ This is still in development and barely does It's job. use at your own discretio
 
 You can see it in action [here](https://jd1378.github.io/persian-to-pinglish/).
 
+## VERY IMPORTANT
+
+This method is cpu intensive and there should be a hard limit of how many characters It's going to process. always sanitize your inputs.
+
 ## Usage
 
 Add to your project:
