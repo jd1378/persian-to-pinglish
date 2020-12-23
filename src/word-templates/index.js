@@ -1,6 +1,6 @@
 import { arabic } from './arabic';
 import { persian } from './persian';
-import { shortMosavets } from '../vaj';
+import { mosavets } from '../vaj';
 
 function calculatePatternScore(pattern) {
   let score = 0;
@@ -175,8 +175,8 @@ function applyTemplateInPlace(fitResult) {
       // it always have type I guess.
       if (fitResult.pattern[i][j].letter) {
         if (
-          // if target letter in word has not short mosavets
-          !shortMosavets[fitResult.word[i][j].letter]
+          // if target letter in word has not mosavet already
+          !mosavets[fitResult.word[i][j].letter]
         ) {
           fitResult.word[i][j].letter = fitResult.pattern[i][j].letter;
         }

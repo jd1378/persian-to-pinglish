@@ -74,4 +74,5 @@ export {
   eM,
   shortMosavets,
   longMosavetLetters,
+  mosavets,
 };
