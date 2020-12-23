@@ -1,6 +1,4 @@
-import cleanup from './cleanup';
 import { getWords } from './sentence';
-import convert from './convert';
 import { getBestWordMatch, toPinglishHejas } from './word';
 
 /**
@@ -15,19 +13,9 @@ function persianToPinglish(str, options) {
 
   return getWords(str)
     .filter(Boolean) // remove empty array elements
-    .map((word) => convert(word))
+    .map((word) => toPinglishHejas(getBestWordMatch(word)).flat().join(''))
     .join(options.join);
 }
 
-function p2fHeja(str, options) {
-  if (!options) options = {};
-  if (!options.join) options.join = ' ';
-
-  return getWords(str)
-    .filter(Boolean) // remove empty array elements
-    .map((word) => toPinglishHejas(getBestWordMatch(word)).flat().join(''))
-    .join(options.join); // join words to sentence
-}
-
 export default persianToPinglish;
-export { cleanup, getWords, convert, persianToPinglish, p2fHeja };
+export { getWords, persianToPinglish, getBestWordMatch, toPinglishHejas };

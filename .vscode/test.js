@@ -1,7 +1,8 @@
 
-import {getPossibleDiacriticedWords, normalizeStr, toPinglishHejas, getBestWordMatch } from '../src/word';
+// import {getPossibleDiacriticedWords, normalizeStr, toPinglishHejas, getBestWordMatch } from '../src/word';
+import { toPinglishHejas, getBestWordMatch } from '../src/index';
 
-const word = 'بحث';
+const word = 'اُستخوان';
 
 /// const convertedWords = getPossibleDiacriticedWords(normalizeStr(word));
 
@@ -10,4 +11,9 @@ const word = 'بحث';
 
 let bestMatch = getBestWordMatch(word);
 let bestMatchWord = bestMatch.word;
-console.log(bestMatchWord.map(h => h.map(v => v.letter)).flat().join('')+':'+toPinglishHejas(bestMatchWord).flat().join(''));
+console.log(
+  // the pattern:
+  bestMatchWord.map(h => h.map(v => v.letter)).flat().join(''),
+  // pinglish:
+  toPinglishHejas(bestMatchWord).flat().join(''),
+);
